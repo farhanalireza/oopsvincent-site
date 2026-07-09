@@ -1,12 +1,11 @@
-import React from 'react'
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Now | oopsvincent",
-  description: "What Vincent is focused on right now — updated regularly.",
+  title: "Now",
+  description: "What Farhan Ali Reza is focused on as of July 9, 2026.",
 };
 
-
-export default function layout({ children }: { children: React.ReactNode }) {
-    return <main>{children}</main> ;
+export default function NowLayout({ children }: { children: ReactNode }) {
+  return children;
 }

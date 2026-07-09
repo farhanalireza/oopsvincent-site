@@ -1,343 +1,115 @@
-"use client";
-import { motion } from "framer-motion";
-import { Code2, Compass, Sparkles, Target, TrendingUp, Users, Zap } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
-import { TimelineSection } from "@/components/TimelineSection";
+import Reveal from "@/components/site/Reveal";
+import PageIntro from "@/components/site/PageIntro";
+import { aboutPrinciples, experienceTimeline, skillGroups } from "@/data/site";
+import type { Metadata } from "next";
+import SkillsList from "@/components/site/SkillsList";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "I write code, design database tables, and think about user flows. The part I enjoy most isn't writing code—it's turning an idea into something people can actually use.",
+};
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="px-6 md:px-16 lg:px-24 pt-32 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-5xl"
-        >
-          <div className="mb-6">
-            <span className="text-sm uppercase tracking-wider text-muted-foreground font-medium">
-              Builder • Founder • Systems Thinker
-            </span>
-          </div>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-space-grotesk font-bold tracking-tight leading-none mb-8">
-            Building Systems<br />That Matter
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl tracking-tighter">
-            Building a multi-product, human-centered technology ecosystem—where platforms like Rhythmé and GrooveEstrella unify under one long-term, systems-driven company vision.          </p>
-        </motion.div>
-      </section>
+    <main>
+      <PageIntro
+        eyebrow="About"
+        title="I build software products from idea to code."
+        description="I study computer science, write code, and design database tables. What I enjoy most is the step-by-step process of starting with a problem, drafting a layout, and making it functional."
+      />
 
-      <Separator className="my-12" />
-
-      {/* Identity & Mission Grid */}
-      <section className="px-6 md:px-16 lg:px-24 py-20">
-        <div className="max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold mb-4">
-              Identity & Direction
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              What drives my work, how I think about building, and where I&apos;m headed.
+      <section className="border-t border-border">
+        <div className="page-shell section-shell grid gap-6 md:grid-cols-2">
+          <Reveal className="surface p-8 md:p-10">
+            <p className="eyebrow">Why I build</p>
+            <p className="mt-5 prose-copy text-sm md:text-base">
+              I enjoy the process of turning an idea into something real. There is a specific satisfaction in sketching a layout on a piece of paper, writing the code, and seeing it function. I don&apos;t build software to show off complex code; I build it because I like making daily life a little more orderly.
             </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Who I Am */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="border border-border rounded-2xl p-8 hover:border-primary/50 transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-primary/10 rounded-lg">
-                  <Code2 className="w-5 h-5" />
-                </div>
-                <h3 className="text-2xl font-space-grotesk font-semibold">Who I Am</h3>
-              </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  A Computer Science student turned product builder. I started with game development, moved into team leadership, and now focus on building meaningful digital systems.
-                </p>
-                <p>
-                  My background spans interactive systems, recommendation algorithms, and user-centered design. I&apos;ve led teams, shipped products, and learned that the best software serves people first.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* What I'm Building */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="border border-border rounded-2xl p-8 hover:border-primary/50 transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-primary/10 rounded-lg">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <h3 className="text-2xl font-space-grotesk font-semibold">What I&apos;m Building</h3>
-              </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  <strong className="text-foreground">Rhythmé</strong> — a productivity platform designed around discipline, clarity, and sustainable personal growth. Not another task manager, but a system for aligning daily actions with long-term identity.
-                </p>
-                <p>
-                  It integrates wellness, habit formation, and goal execution into a unified experience. Built to help people build the lives they want through consistent, intentional action.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* How I Think */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="border border-border rounded-2xl p-8 hover:border-primary/50 transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-primary/10 rounded-lg">
-                  <Compass className="w-5 h-5" />
-                </div>
-                <h3 className="text-2xl font-space-grotesk font-semibold">How I Think</h3>
-              </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  I believe in building slowly and deliberately. Quality compounds. Shortcuts don&apos;t scale. Systems outlast trends.
-                </p>
-                <p>
-                  My approach balances technical execution with design thinking and strategic positioning. Every decision should serve both immediate functionality and long-term vision. Clean architecture. Clear value. Sustainable growth.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Where I'm Going */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="border border-border rounded-2xl p-8 hover:border-primary/50 transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-primary/10 rounded-lg">
-                  <Target className="w-5 h-5" />
-                </div>
-                <h3 className="text-2xl font-space-grotesk font-semibold">Where I&apos;m Going</h3>
-              </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  Expanding Rhythmé into a full creative-tech studio. Building interconnected products that address wellness, creativity, and personal systems at scale.
-                </p>
-                <p>
-                  Long-term: establishing a company that merges exceptional design, human-centered technology, and business sustainability. Building products that last and teams that grow.
-                </p>
-              </div>
-            </motion.div>
-          </div>
+          </Reveal>
+          <Reveal delay={0.08} className="surface p-8 md:p-10">
+            <p className="eyebrow">How I think</p>
+            <p className="mt-5 prose-copy text-sm md:text-base">
+              I prefer to understand the problem fully before opening a text editor. A confusing user flow cannot be fixed by writing cleaner code. I would rather spend two days figuring out the simplest layout on paper than write code I will have to delete later.
+            </p>
+          </Reveal>
+          <Reveal delay={0.16} className="surface p-8 md:p-10">
+            <p className="eyebrow">What I&apos;m building now</p>
+            <p className="mt-5 prose-copy text-sm md:text-base">
+              Right now, I am building Rhythme—a daily planner that combines tasks, habits, and reflections on a single screen. I started it because I got tired of productivity apps that use constant notifications and streaks to capture attention. A planner should help you organize your day and get back to your life, not keep you staring at a screen.
+            </p>
+          </Reveal>
+          <Reveal delay={0.24} className="surface p-8 md:p-10">
+            <p className="eyebrow">Where I&apos;m heading</p>
+            <p className="mt-5 prose-copy text-sm md:text-base">
+              I am a Computer Science graduate focused on becoming a disciplined product developer. My goal is to build software that lasts, which means choosing readability and solid fundamentals over temporary trends. I want to spend my career building simple, reliable tools that people use every day.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      <Separator className="my-12" />
-
-      {/* Timeline */}
-      <div className="px-6 md:px-16 lg:px-24">
-        <TimelineSection />
-      </div>
-
-      <Separator className="my-12" />
-
-      {/* Philosophy & Principles */}
-      <section className="px-6 md:px-16 lg:px-24 py-20">
-        <div className="max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold mb-4">
-              Philosophy & Operating Principles
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              The beliefs that shape how I build, lead, and make decisions.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Zap,
-                title: "Bias Toward Action",
-                description: "Ship early. Iterate fast. Learn by building. Perfect is the enemy of shipped."
-              },
-              {
-                icon: TrendingUp,
-                title: "Compound Thinking",
-                description: "Small, consistent improvements over time create exponential results. Focus on systems, not goals."
-              },
-              {
-                icon: Users,
-                title: "User-Centered Always",
-                description: "Technology serves people, not the other way around. Every feature must justify its existence."
-              },
-              {
-                icon: Target,
-                title: "Clear Positioning",
-                description: "Know exactly what you're building and for whom. Specificity creates clarity. Clarity drives execution."
-              },
-              {
-                icon: Code2,
-                title: "Technical Excellence",
-                description: "Quality architecture enables speed. Write code that's maintainable, testable, and scalable."
-              },
-              {
-                icon: Compass,
-                title: "Long-Term Orientation",
-                description: "Build for decades, not quarters. Optimize for sustainability over short-term metrics."
-              }
-            ].map((principle, idx) => (
-              <motion.div
-                key={principle.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="border border-border rounded-xl p-6 hover:border-primary/50 transition-colors"
-              >
-                <div className="p-2.5 bg-primary/10 rounded-lg w-fit mb-4">
-                  <principle.icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-space-grotesk font-semibold mb-2">
-                  {principle.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {principle.description}
-                </p>
-              </motion.div>
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow">Building Philosophy</p>
+            <h2 className="section-title mt-5">Principles I value.</h2>
+          </Reveal>
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {aboutPrinciples.map((principle, index) => (
+              <Reveal key={principle.title} delay={index * 0.06}>
+                <article className="surface p-7">
+                  <h3 className="font-space-grotesk text-xl font-semibold">{principle.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{principle.body}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <Separator className="my-12" />
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow">Experience</p>
+            <h2 className="section-title mt-5">My work so far.</h2>
+          </Reveal>
 
-      {/* Leadership & Business Interest */}
-      <section className="px-6 md:px-16 lg:px-24 py-20">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold mb-6">
-              Leadership & Business
-            </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Building products is only part of the equation. Understanding markets, leading teams, and making strategic decisions determines whether those products create lasting impact.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6 text-muted-foreground leading-relaxed"
-          >
-            <p className="text-lg">
-              I&apos;m fascinated by the intersection of technology and commerce — how great products become sustainable businesses, how teams scale without losing quality, and how strategic positioning creates competitive advantages.
-            </p>
-            <p className="text-lg">
-              My experience leading a five-person development team taught me that technical skills alone don&apos;t ship products. Clear communication, structured workflows, and the ability to make decisive calls under constraints matter just as much as clean code.
-            </p>
-            <p className="text-lg">
-              I study business models, market dynamics, and organizational design because building a product studio requires more than engineering excellence. It requires understanding unit economics, customer acquisition, retention mechanics, and how to structure teams for sustainable growth.
-            </p>
-            <p className="text-lg">
-              The goal isn&apos;t just to build great products — it&apos;s to build a company that consistently delivers exceptional work while growing both the business and the people within it.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <Separator className="my-12" />
-
-      {/* What I'm Open To */}
-      <section className="px-6 md:px-16 lg:px-24 py-20">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold mb-4">
-              Open To
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Conversations and collaborations that move both parties forward.
-            </p>
-          </motion.div>
-
-          <div className="space-y-4">
-            {[
-              "Product collaborations with founders building meaningful tools",
-              "Conversations with experienced builders and operators",
-              "Strategic partnerships aligned with Rhythmé's vision",
-              "Learning from people who've scaled products and teams"
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="flex items-start gap-4 p-5 border border-border rounded-xl hover:border-primary/50 transition-colors"
-              >
-                <div className="w-2 h-2 rounded-full bg-primary mt-2.5 flex-shrink-0" />
-                <p className="text-lg">{item}</p>
-              </motion.div>
+          <div className="mt-12 space-y-8">
+            {experienceTimeline.map((item, index) => (
+              <Reveal key={item.year} delay={index * 0.06}>
+                <article className="grid gap-5 border-l border-border pl-6 md:grid-cols-[160px_1fr] md:pl-0">
+                  <div className="md:pr-6">
+                    <p className="font-space-grotesk text-3xl font-bold">{item.year}</p>
+                    <p className="mt-2 text-sm text-muted-foreground">{item.role}</p>
+                  </div>
+                  <div className="relative pb-2 md:border-l md:border-border md:pl-8">
+                    <span className="absolute -left-[6px] top-2 hidden h-3 w-3 rounded-full bg-primary md:block" />
+                    <h3 className="font-space-grotesk text-2xl font-semibold">{item.title}</h3>
+                    <p className="mt-3 prose-copy">{item.body}</p>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final Vision Statement */}
-      <section className="px-6 md:px-16 lg:px-24 py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <div className="mb-8">
-            <div className="inline-block p-4 bg-primary/10 rounded-2xl">
-              <Target className="w-8 h-8" />
-            </div>
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow">Skills</p>
+            <h2 className="section-title mt-5">Grouped by how I actually use them.</h2>
+          </Reveal>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {skillGroups.map((group, index) => (
+              <Reveal key={group.title} delay={index * 0.06}>
+                <div className="surface p-7">
+                  <h3 className="font-space-grotesk text-xl font-semibold">{group.title}</h3>
+                  <SkillsList items={group.items} />
+                </div>
+              </Reveal>
+            ))}
           </div>
-          <h2 className="text-3xl md:text-4xl font-space-grotesk font-bold mb-6">
-            Building for the Long Term
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            My focus is singular: build exceptional products, cultivate strong teams, and establish systems that compound over time. Everything else is noise.
-          </p>
-        </motion.div>
+        </div>
       </section>
     </main>
   );

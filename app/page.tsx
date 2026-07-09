@@ -1,362 +1,200 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Sparkles, TrendingUp, Users } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import Reveal from "@/components/site/Reveal";
+import { projectsOverview } from "@/data/projects";
+import { homeHighlights, skillGroups, workFocus } from "@/data/site";
+import SkillsList from "@/components/site/SkillsList";
+
+export const metadata = {
+  title: "Home",
+  description:
+    "I build software products. Right now, I'm building Rhythme—a daily system for planning, habits, and reflection.",
+};
 
 export default function Home() {
+  const featuredProject = projectsOverview.find((project) => project.featured);
+  const secondaryProject = projectsOverview.find((project) => !project.featured);
+
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="px-6 md:px-16 lg:px-24 pt-32 pb-20 min-h-[90vh] flex flex-col justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-5xl"
-        >
-          {/* Name & Identity */}
-          <div className="mb-8">
-            <h1 className="text-7xl md:text-9xl font-space-grotesk font-bold tracking-tight leading-none bg-clip-text text-transparent bg-linear-to-r from-foreground to-foreground/60">
-              Farhan Ali Reza
+    <main>
+      <section className="page-shell section-shell flex min-h-screen items-center pt-28">
+        <div className="flex flex-col gap-14">
+          <Reveal className="max-w-4xl">
+            <p className="eyebrow">Developer & Founder</p>
+            <h1 className="display-title mt-6">
+              I build software products from idea to code.
             </h1>
-            <h1 className="text-4xl md:text-6xl font-space-grotesk font-bold tracking-tight leading-none mb-3 bg-clip-text text-transparent bg-linear-to-r from-foreground to-foreground/60">
-              AKA oopsvincent
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-space-grotesk">
-              Building disciplined technology for meaningful human progress.
+            <p className="lede mt-8 max-w-3xl">
+              I am a full-stack developer and entrepreneur. Right now, I am building Rhythme—a daily planning and habits tool designed to work without streaks or noisy notifications.
             </p>
-          </div>
+          </Reveal>
 
-          {/* Role & Focus */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-12"
-          >
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl tracking-tighter">
-              Founder building <strong className="text-foreground">Rhythmé</strong>, a productivity platform designed around discipline, clarity, and long-term personal growth. Working toward a creative-tech studio focused on human-centered digital systems.
-            </p>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap gap-4"
-          >
-            <Link
-              href="/about"
-              className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full font-medium hover:bg-foreground/90 transition-all"
-            >
-              About & Vision
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/now"
-              className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-full font-medium hover:bg-muted transition-colors"
-            >
-              What I&apos;m Doing Now
-            </Link>
-            <Link
-              href="/connect"
-              className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-full font-medium hover:bg-muted transition-colors"
-            >
-              Connect
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-20 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs uppercase tracking-wider text-muted-foreground">
-            Scroll to explore
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-px h-12 bg-gradient-to-b from-border to-transparent"
-          />
-        </motion.div>
-      </section>
-
-      {/* What I'm Building */}
-      <section className="px-6 md:px-16 lg:px-24 py-32 border-t border-border">
-        <div className="max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
-            className="mb-16"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Sparkles className="w-5 h-5" />
+          <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+            <Reveal>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/projects" className="button-primary">
+                  View projects
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/about" className="button-secondary">
+                  About me
+                </Link>
+                <Link href="/connect" className="button-secondary">
+                  Contact
+                </Link>
               </div>
-              <span className="text-sm uppercase tracking-wider text-muted-foreground font-medium">
-                Current Work
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-space-grotesk font-bold mb-6">
-              Building Rhythmé
-            </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
-              A discipline-first productivity platform that integrates habit formation, mental wellness, and goal execution into a unified system. Designed for people building meaningful lives through consistent, intentional action.
-            </p>
-          </motion.div>
+            </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Discipline-Centered",
-                description: "Built around sustainable habits and long-term commitment, not quick fixes or productivity theater."
-              },
-              {
-                title: "Wellness-Integrated",
-                description: "Combines productivity with mental clarity, physical health, and emotional balance for holistic growth."
-              },
-              {
-                title: "Systems-Driven",
-                description: "Focuses on building resilient personal systems that compound over time, not chasing daily metrics."
-              }
-            ].map((feature, idx) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="border border-border rounded-xl p-6 hover:border-primary/50 transition-colors"
-              >
-                <h3 className="text-lg font-space-grotesk font-semibold mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
+            <Reveal delay={0.1}>
+              <div className="surface-muted p-7 md:p-8">
+                <p className="eyebrow">Current focus</p>
+                <h2 className="mt-4 font-space-grotesk text-2xl font-bold">Building Rhythme</h2>
+                <p className="mt-4 prose-copy">
+                  I am building Rhythme because I wanted a daily planner that does not treat my time like a game. I am focusing on making the daily check-in feel fast and simple.
                 </p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12"
-          >
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:gap-3 transition-all"
-            >
-              Read more about the vision
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Current Focus */}
-      <section className="px-6 md:px-16 lg:px-24 py-32 border-t border-border">
-        <div className="max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
-            className="mb-16"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <span className="text-sm uppercase tracking-wider text-muted-foreground font-medium">
-                Right Now
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-space-grotesk font-bold mb-6">
-              Where My Focus Is
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Product Development",
-                items: [
-                  "Building and refining Rhythmé's core features and user experience",
-                  "Designing architecture for scalable, maintainable systems",
-                  "Testing with early users to validate product-market fit"
-                ]
-              },
-              {
-                title: "Strategic Growth",
-                items: [
-                  "Deepening understanding of business models and market dynamics",
-                  "Studying leadership, finance, and organizational design",
-                  "Building foundation for sustainable, bootstrapped company growth"
-                ]
-              },
-              {
-                title: "Network & Learning",
-                items: [
-                  "Connecting with founders, developers, and operators",
-                  "Learning from people who've scaled products and teams",
-                  "Building relationships with creators focused on meaningful impact"
-                ]
-              },
-              {
-                title: "Documentation & Knowledge",
-                items: [
-                  "Documenting lessons learned from building and leading",
-                  "Sharing frameworks and insights for other builders",
-                  "Creating resources that help future founders avoid common mistakes"
-                ]
-              }
-            ].map((section, idx) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="border border-border rounded-xl p-8"
-              >
-                <h3 className="text-xl font-space-grotesk font-semibold mb-6">
-                  {section.title}
-                </h3>
-                <ul className="space-y-4">
-                  {section.items.map((item, itemIdx) => (
-                    <li key={itemIdx} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground leading-relaxed">
-                        {item}
-                      </span>
+                <ul className="mt-6 space-y-3">
+                  {workFocus.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
-            ))}
+              </div>
+            </Reveal>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-12"
-          >
-            <Link
-              href="/now"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:gap-3 transition-all"
-            >
-              See detailed /now page
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
         </div>
       </section>
 
-      {/* Open To Collaboration */}
-      <section className="px-6 md:px-16 lg:px-24 py-32 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Users className="w-5 h-5" />
-              </div>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold mb-6">
-              Open to Collaboration
-            </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Interested in connecting with founders, builders, and operators working on meaningful products.
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow">Approach</p>
+            <h2 className="section-title mt-5">Writing code is only part of the work.</h2>
+            <p className="lede mt-5">
+              I prefer solving problems on paper before writing a line of code. Good software comes from understanding user flows and database tables first, not from typing fast.
             </p>
-          </motion.div>
+          </Reveal>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4 mb-12"
-          >
-            {[
-              "Product collaborations aligned with Rhythmé's mission",
-              "Conversations with experienced builders and leaders",
-              "Strategic partnerships in wellness and productivity space",
-              "Learning opportunities from people who've scaled companies"
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="flex items-start gap-4 p-5 border border-border rounded-xl hover:border-primary/50 transition-colors"
-              >
-                <div className="w-2 h-2 rounded-full bg-primary mt-2.5 flex-shrink-0" />
-                <p className="text-lg">{item}</p>
-              </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {homeHighlights.map((item, index) => (
+              <Reveal key={item.title} delay={index * 0.06}>
+                <article className="surface p-7">
+                  <h3 className="font-space-grotesk text-xl font-semibold">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.body}</p>
+                </article>
+              </Reveal>
             ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center"
-          >
-            <Link
-              href="/connect"
-              className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-all"
-            >
-              Get in Touch
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-6 md:px-16 lg:px-24 py-12 border-t border-border">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-sm text-muted-foreground">
-            © 2025 Farhan — Building with discipline, clarity, and purpose.
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <Reveal className="max-w-3xl">
+              <p className="eyebrow">Projects</p>
+              <h2 className="section-title mt-5">Real projects, not tutorials.</h2>
+              <p className="lede mt-5">
+                I focus on projects where I designed the database and wrote the code myself. Each project represents a concrete challenge I wanted to solve.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <Link href="/projects" className="button-ghost">
+                See all projects
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Reveal>
           </div>
-          <div className="flex gap-6">
-            <Link
-              href="/about"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="/now"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Now
-            </Link>
-            <Link
-              href="/connect"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Connect
-            </Link>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {[featuredProject, secondaryProject].filter(Boolean).map((project, index) => (
+              <Reveal key={project!.slug} delay={index * 0.08}>
+                <Link href={`/projects/${project!.slug}`} className="group block surface-muted p-8">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="chip">{project!.year}</span>
+                    <span className="chip capitalize">
+                      {project!.status === "in-progress" ? "In progress" : project!.status}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 mt-5">
+                    {project!.logoImage && (
+                      <div className={`relative h-12 w-12 shrink-0 overflow-hidden border border-border bg-card p-1 ${
+                        project!.slug === "grooveestrella" ? "rounded-full" : "rounded-xl"
+                      }`}>
+                        <Image 
+                          src={project!.logoImage} 
+                          alt={`${project!.title} logo`} 
+                          width={48}
+                          height={48}
+                          className={`h-full w-full object-contain ${
+                            project!.slug === "grooveestrella" ? "rounded-full" : "rounded-lg"
+                          }`}
+                        />
+                      </div>
+                    )}
+                    <h3 className="font-space-grotesk text-3xl font-bold transition-colors group-hover:text-primary">
+                      {project!.title}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-base leading-7 text-muted-foreground">
+                    {project!.summary}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project!.techStack.slice(0, 4).map((tech) => (
+                      <span key={tech} className="chip">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-8 inline-flex items-center gap-2 text-sm font-medium">
+                    Read case study
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
-      </footer>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow">Tools</p>
+            <h2 className="section-title mt-5">Technologies I use to build.</h2>
+          </Reveal>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {skillGroups.map((group, index) => (
+              <Reveal key={group.title} delay={index * 0.06}>
+                <div className="surface p-7">
+                  <h3 className="font-space-grotesk text-xl font-semibold">{group.title}</h3>
+                  <SkillsList items={group.items} />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <Reveal className="surface-muted max-w-4xl p-8 md:p-12">
+            <p className="eyebrow">Contact</p>
+            <h2 className="section-title mt-5">Let&apos;s talk about building products.</h2>
+            <p className="lede mt-5 max-w-2xl">
+              I am always glad to talk with other developers, founders, or recruitment teams who value clear communication and straightforward code.
+            </p>
+            <div className="mt-8">
+              <Link href="/connect" className="button-primary">
+                Reach out
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </main>
   );
 }

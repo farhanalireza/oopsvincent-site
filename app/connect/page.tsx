@@ -1,395 +1,175 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, Twitter, Github, Linkedin, MessageSquare, Calendar, FileText, ExternalLink, Clock } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
+import PageIntro from "@/components/site/PageIntro";
+import Reveal from "@/components/site/Reveal";
+import { siteConfig } from "@/data/site";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Connect",
+  description: "Contact Farhan Ali Reza for freelance projects, startup discussions, or recruitment.",
+};
 
 export default function ConnectPage() {
+  const idealForItems = [
+    "discussing a project",
+    "product feedback",
+    "startup conversations",
+    "technical consultations",
+  ];
+
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="px-6 md:px-16 lg:px-24 pt-32 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-4xl"
-        >
-          <div className="mb-6">
-            <span className="text-sm uppercase tracking-wider text-muted-foreground font-medium">
-              Connect
-            </span>
-          </div>
-          <h1 className="text-6xl md:text-8xl font-space-grotesk font-bold tracking-tight leading-none mb-8">
-            Let&apos;s Build<br />Together
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl tracking-tighter">
-            Open to conversations with founders, builders, and operators who value long-term thinking, disciplined execution, and meaningful impact.
-          </p>
-        </motion.div>
-      </section>
+    <main>
+      <PageIntro
+        eyebrow="Connect"
+        title="Let's build something worthwhile."
+        description="Whether you're looking to hire, collaborate, discuss an idea, or simply want to say hello, I'd be happy to hear from you. I enjoy conversations about software, startups, product design, and building things that solve real problems."
+      />
 
-      {/* What I'm Looking For */}
-      <section className="px-6 md:px-16 lg:px-24 py-20 border-t border-border">
-        <div className="max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-space-grotesk font-bold mb-4">
-              What I&apos;m Open To
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              I&apos;m selective about where I invest time and energy. Here&apos;s what I&apos;m actively interested in.
-            </p>
-          </motion.div>
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow">Ways to connect</p>
+            <h2 className="section-title mt-5">Choose how you want to reach out.</h2>
+          </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Product Collaborations",
-                description: "Working with founders building tools in productivity, wellness, or personal systems. Especially interested in projects with clear vision and disciplined execution.",
-                status: "High Priority"
-              },
-              {
-                title: "Strategic Conversations",
-                description: "Discussions about business models, market positioning, product strategy, or scaling challenges. Learning from people who've built and grown companies.",
-                status: "Always Open"
-              },
-              {
-                title: "Technical Partnerships",
-                description: "Collaborating on complex technical problems, architecture decisions, or engineering challenges that require systems thinking.",
-                status: "Case by Case"
-              },
-              {
-                title: "Advisory & Mentorship",
-                description: "Connecting with experienced operators who can provide guidance on company building, leadership, or product development.",
-                status: "Actively Seeking"
-              }
-            ].map((item, idx) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="border border-border rounded-xl p-6 hover:border-primary/50 transition-colors"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-space-grotesk font-semibold">
-                    {item.title}
-                  </h3>
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium whitespace-nowrap">
-                    {item.status}
-                  </span>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {item.description}
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {/* Card 1: Email */}
+            <Reveal delay={0.05}>
+              <div className="surface flex h-full flex-col p-8">
+                <p className="eyebrow">Email</p>
+                <h3 className="mt-4 font-space-grotesk text-2xl font-bold">{siteConfig.email}</h3>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground flex-grow">
+                  For project inquiries, freelance work, recruitment opportunities, or anything that doesn&apos;t fit into a calendar invite.
                 </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Best Ways to Reach Me */}
-      <section className="px-6 md:px-16 lg:px-24 py-20 border-t border-border">
-        <div className="max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-space-grotesk font-bold mb-4 tracking-tighter">
-              Best Ways to Reach Me
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl tracking-tighter">
-              Choose the channel that works best for your message type.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Mail,
-                title: "Email",
-                subtitle: "For detailed proposals",
-                description: "Best for in-depth discussions, partnership proposals, or anything requiring context.",
-                link: "mailto:farhan44@duck.com",
-                linkText: "farhan44@duck.com",
-                recommended: true,
-                responseTime: "24-48 hours"
-              },
-              {
-                icon: Calendar,
-                title: "Schedule a Call",
-                subtitle: "For focused conversations",
-                description: "Book time for strategy discussions, product feedback, or collaborative brainstorming.",
-                link: "https://cal.com/oopsvincent",
-                linkText: "Schedule on Cal.com",
-                recommended: false,
-                responseTime: "Same week"
-              },
-              {
-                icon: Twitter,
-                title: "Twitter/X",
-                subtitle: "For quick exchanges",
-                description: "Public discussions, quick questions, or sharing interesting ideas worth discussing.",
-                link: "https://twitter.com/oopsvincent",
-                linkText: "@oopsvincent",
-                recommended: false,
-                responseTime: "Variable"
-              }
-            ].map((method, idx) => (
-              <motion.div
-                key={method.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="border border-border rounded-xl p-6 hover:border-primary/50 transition-colors relative"
-              >
-                {method.recommended && (
-                  <div className="absolute -top-3 right-6 px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
-                    Recommended
-                  </div>
-                )}
-                
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
-                  <method.icon className="w-6 h-6" />
-                </div>
-                
-                <h3 className="text-xl font-space-grotesk font-semibold mb-1">
-                  {method.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {method.subtitle}
-                </p>
-                
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                  {method.description}
-                </p>
-                
-                <div className="space-y-3">
-                  <Link
-                    href={method.link}
-                    target="_blank"
-                    className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    {method.linkText}
-                    <ExternalLink className="w-3.5 h-3.5" />
+                <div className="mt-8">
+                  <Link href={`mailto:${siteConfig.email}`} className="button-primary w-full justify-center">
+                    <Mail className="h-4 w-4" />
+                    Email me
                   </Link>
-                  
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>Response time: {method.responseTime}</span>
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Links */}
-      <section className="px-6 md:px-16 lg:px-24 py-20 border-t border-border">
-        <div className="max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-space-grotesk font-bold mb-4 tracking-tighter">
-              Find Me Online
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl tracking-tighter">
-              Follow my work, see what I&apos;m building, and stay updated on new projects.
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              {
-                icon: Twitter,
-                platform: "Twitter/X",
-                handle: "@oopsvincent",
-                description: "Thoughts on building, product, and strategy",
-                link: "https://twitter.com/oopsvincent"
-              },
-              {
-                icon: Github,
-                platform: "GitHub",
-                handle: "oopsvincent",
-                description: "Open source work and technical projects",
-                link: "https://github.com/oopsvincent"
-              },
-              {
-                icon: Linkedin,
-                platform: "LinkedIn",
-                handle: "Farhan Ali Reza",
-                description: "Professional network and company updates",
-                link: "https://linkedin.com/in/farhanalireza"
-              },
-              {
-                icon: FileText,
-                platform: "Blog/Newsletter",
-                handle: "Coming Soon",
-                description: "Long-form writing on building and growth",
-                link: "#",
-                disabled: true
-              }
-            ].map((social, idx) => (
-              <motion.div
-                key={social.platform}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-              >
-                <Link
-                  href={social.link}
-                  target="_blank"
-                  className={`block border border-border rounded-xl p-5 hover:border-primary/50 transition-all group ${
-                    social.disabled ? 'opacity-50 pointer-events-none' : ''
-                  }`}
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                      <social.icon className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-space-grotesk font-semibold text-sm">
-                        {social.platform}
-                      </div>
-                      <div className="text-xs text-muted-foreground">
-                        {social.handle}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {social.description}
-                  </p>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Before You Reach Out */}
-      <section className="px-6 md:px-16 lg:px-24 py-20 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="border border-border rounded-2xl p-8 md:p-12 bg-muted/30"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2.5 bg-primary/10 rounded-lg">
-                <MessageSquare className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-space-grotesk font-bold">
-                Before You Reach Out
-              </h3>
+            </Reveal>
+
+            {/* Card 2: Call */}
+            <Reveal delay={0.1}>
+              <div className="surface flex h-full flex-col p-8">
+                <p className="eyebrow">Schedule a call</p>
+                <h3 className="mt-4 font-space-grotesk text-2xl font-bold">Book a call</h3>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                  If you&apos;d rather talk face-to-face, you can book a time that works for both of us.
+                </p>
+                <div className="mt-6 flex-grow">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-foreground">Ideal for</p>
+                  <ul className="mt-3 space-y-2">
+                    {idealForItems.map((item) => (
+                      <li key={item} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-8">
+                  <Link 
+                    href={siteConfig.calendar} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="button-secondary w-full justify-center"
+                  >
+                    Book a call
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 3: X */}
+            <Reveal delay={0.15}>
+              <div className="surface flex h-full flex-col p-8">
+                <p className="eyebrow">X (Twitter)</p>
+                <h3 className="mt-4 font-space-grotesk text-2xl font-bold">@oopsvincent</h3>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground flex-grow">
+                  I occasionally share updates on what I&apos;m building, what I&apos;m learning, and the progress of Rhythme. If you have a quick question, feel free to reach out there as well.
+                </p>
+                <div className="mt-8">
+                  <Link 
+                    href={siteConfig.x} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="button-secondary w-full justify-center"
+                  >
+                    Follow on X
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="page-shell section-shell grid gap-12 lg:grid-cols-2">
+          {/* Before you reach out */}
+          <Reveal>
+            <p className="eyebrow">Guidelines</p>
+            <h2 className="section-title mt-5 font-space-grotesk">Before you reach out</h2>
+            <div className="mt-6 prose-copy space-y-4">
+              <p>A short introduction always helps.</p>
+              <p>If you&apos;re getting in touch about a project, it helps to include:</p>
+              <ul className="space-y-2.5">
+                {[
+                  "who you are",
+                  "what you're building",
+                  "what kind of help you're looking for",
+                  "any relevant links or context",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="pt-4 font-medium text-foreground">
+                Clear messages usually lead to better conversations.
+              </p>
             </div>
-            
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              I respond to every thoughtful message, but I&apos;m most excited about conversations that:
-            </p>
-            
-            <ul className="space-y-3 mb-6">
-              {[
-                "Show you've read my work or understand what I'm building",
-                "Have a clear ask or specific topic for discussion",
-                "Demonstrate long-term thinking and genuine interest",
-                "Come from a place of mutual value exchange"
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
-                  <span className="text-muted-foreground">{item}</span>
-                </li>
-              ))}
-            </ul>
-            
-            <p className="text-sm text-muted-foreground italic">
-              Not interested in: Generic outreach, cold sales pitches, requests without context, or anything that doesn&apos;t align with building meaningful, long-term work.
-            </p>
-          </motion.div>
+          </Reveal>
+
+          {/* Current availability */}
+          <Reveal delay={0.08}>
+            <p className="eyebrow">Availability</p>
+            <h2 className="section-title mt-5 font-space-grotesk">Current availability</h2>
+            <div className="mt-6 prose-copy space-y-6">
+              <p>
+                I&apos;m currently focused on building Rhythme, so I only take on a limited number of client projects.
+              </p>
+              <p>
+                If I think I&apos;m a good fit for what you&apos;re building, I&apos;d be happy to talk.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 md:px-16 lg:px-24 py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold mb-6">
-            Ready to Connect?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-            Send me an email or schedule a call. Looking forward to hearing what you&apos;re building.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="mailto:farhan44@duck.com"
-              className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-all"
-            >
-              <Mail className="w-5 h-5" />
-              Send Email
-            </Link>
-            <Link
-              href="https://cal.com/oopsvincent"
-              target="_blank"
-              className="inline-flex items-center gap-2 border border-border px-8 py-4 rounded-full font-medium text-lg hover:bg-muted transition-colors"
-            >
-              <Calendar className="w-5 h-5" />
-              Schedule Call
-            </Link>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Footer */}
-      <footer className="px-6 md:px-16 lg:px-24 py-12 border-t border-border">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-sm text-muted-foreground">
-            © 2025 Farhan — Building with discipline, clarity, and purpose.
-          </div>
-          <div className="flex gap-6">
-            <Link
-              href="/"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="/now"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Now
-            </Link>
-          </div>
+      <section className="border-t border-border">
+        <div className="page-shell section-shell">
+          <Reveal className="surface-muted max-w-4xl p-8 md:p-12">
+            <p className="eyebrow">Direct Contact</p>
+            <h2 className="section-title mt-5">Have an idea you&apos;d like to discuss?</h2>
+            <p className="lede mt-5 max-w-2xl">
+              I&apos;d love to hear about it. Whether it&apos;s a startup, a product, a website, or simply a conversation about building software, my inbox is always open.
+            </p>
+            <div className="mt-8">
+              <Link href={`mailto:${siteConfig.email}`} className="button-primary">
+                Send an email
+                <Mail className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
-      </footer>
+      </section>
     </main>
   );
 }

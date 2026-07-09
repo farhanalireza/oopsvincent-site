@@ -5,18 +5,13 @@ import { Moon, Sun } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useSyncExternalStore } from 'react';
 
+const emptySubscribe = () => () => {};
+
 const ThemeToggle = () => {
   const { resolvedTheme, setTheme } = useTheme();
-  
-  // Use useSyncExternalStore for proper client-side rendering
-  const mounted = useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false
-  );
-  
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
+
   if (!mounted) {
-    // Return a placeholder that matches the button dimensions
     return (
       <div className="relative p-2 w-9 h-9 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50" />
     );

@@ -1,169 +1,108 @@
-// data/projects.ts
-
-type Project = {
-  slug: string;
-  title: string;
-  tagline?: string;
-  year?: string;
-  status?: "in-progress" | "shipped" | "archived";
-  summary: string;
-  role?: string;
-  techStack?: string[];
-  links?: { label: string; href: string }[];
-  sections?: {
-    heading: string;
-    body: string;
-  }[];
-  coverImage?: string;
-  logoImage?: string;
+export type ProjectSection = {
+  heading: string;
+  body: string;
 };
 
-type ProjectOverview = {
+export type Project = {
   slug: string;
   title: string;
-  tagline?: string;
-  year?: string;
-  status?: "in-progress" | "shipped" | "archived";
+  tagline: string;
+  year: string;
+  status: "in-progress" | "shipped" | "archived";
   summary: string;
-  role?: string;
-  techStack?: string[];
+  role: string;
+  techStack: string[];
   links?: { label: string; href: string }[];
-  coverImage?: string;
+  sections: ProjectSection[];
+  takeaways: string[];
   logoImage?: string;
   featured?: boolean;
 };
 
-export const projectsOverview: ProjectOverview[] = [
-  {
-    slug: "rhythme",
-    title: "Rhythmé",
-    tagline:
-      "Discipline-first productivity platform for long-term personal growth",
-    year: "2025",
-    status: "in-progress",
-    summary:
-      "A comprehensive personal alignment system integrating habits, wellness, and goal execution. Built around the philosophy that sustainable productivity requires emotional clarity and disciplined systems.",
-    role: "Founder & Product Architect",
-    techStack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-    logoImage: "/R.svg",
-    featured: true,
-  },
-  {
-    slug: "music-recommender",
-    title: "GrooveEstrella",
-    tagline: "Custom algorithm-driven music discovery system",
-    year: "2024",
-    status: "shipped",
-    summary:
-      "Led five-person team to build a music recommendation platform from first principles. Designed custom algorithms and data models without external APIs.",
-    role: "Technical Lead",
-    techStack: ["React", "JavaScript", "Vite.js", "Node.js"],
-    logoImage: "/G.svg",
-    featured: false,
-  },
-];
-
 export const projects: Project[] = [
   {
     slug: "rhythme",
-    title: "Rhythmé",
-    tagline:
-      "Discipline-first productivity platform for long-term personal growth",
-    year: "2025",
+    title: "Rhythme",
+    tagline: "A daily planner built to combine tasks, habits, and reflection on a single quiet page.",
+    year: "2025-Present",
     status: "in-progress",
     summary:
-      "A comprehensive personal alignment system integrating habits, wellness, and goal execution. Built around the philosophy that sustainable productivity requires emotional clarity and disciplined systems.",
-    role: "Founder & Product Architect",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "Supabase",
-      "Tailwind CSS",
-      "Framer Motion",
-    ],
+      "I got tired of productivity apps that treat planning like a game with streaks and badges. I wanted a quiet page to organize my day and write down what I got done.",
+    role: "Founder & Developer",
+    techStack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Framer Motion"],
     links: [
-      { label: "Live Preview", href: "https://rhythme-gamma.vercel.app/" },
+      { label: "Live preview", href: "https://rhythme-gamma.vercel.app/" },
       {
         label: "Documentation",
-        href: "https://github.com/oopsvincent/rhythme/tree/master/docs",
+        href: "https://github.com/farhanalireza/rhythme/tree/master/docs",
       },
     ],
     sections: [
       {
         heading: "The Problem",
-        body: "Most productivity tools treat users like task-completing machines. They optimize for output without considering emotional state, energy patterns, or long-term identity alignment. People burn out because their tools don't understand their internal rhythm. The market is saturated with apps that help you do more, but few that help you become who you want to be.",
+        body: "Most productivity apps are designed to keep you inside the app. They use push notifications, streaks, and badges to capture attention. A good planner should do the opposite: it should help you get out of the app and back to your life.",
       },
       {
-        heading: "The Vision",
-        body: "Rhythmé reimagines productivity as personal alignment. Instead of another task manager, it's a system that connects daily habits, emotional patterns, focus states, and long-term goals into one cohesive experience. The goal isn't to optimize for maximum output—it's to build sustainable systems that compound over time and support genuine personal growth.",
+        heading: "The Database",
+        body: "I chose PostgreSQL through Supabase. Instead of complex schema designs, I kept tables flat. A single log table links habit completions and tasks to a specific calendar date, which makes reading a user's day straightforward.",
       },
       {
-        heading: "Product Strategy",
-        body: "Building in deliberate phases to validate assumptions and maintain quality. Phase 1 focuses on core functionality: habit tracking, task management, mood logging, and focus sessions. Phase 2 introduces AI-driven insights and pattern recognition. Phase 3 expands to community features and deeper personalization. Each phase ships a complete, valuable experience—not a half-built vision.",
+        heading: "The Frontend",
+        body: "I built the frontend with Next.js. Habit tracking requires instant feedback. If checking a habit takes two seconds because of database latency, it feels broken. I update the checkbox immediately on the screen and sync the state to the database in the background.",
       },
       {
-        heading: "Technical Architecture",
-        body: "Built on Next.js 14 with TypeScript for type safety and developer experience. Supabase provides authentication, real-time data, and PostgreSQL database. Designed for scale from day one with proper separation of concerns, optimistic updates, and efficient data fetching. The architecture prioritizes maintainability—this needs to support years of iteration, not just an MVP launch.",
-      },
-      {
-        heading: "Design Philosophy",
-        body: "The interface reflects the product philosophy: clean, intentional, and emotionally aware. Every element serves a purpose. No feature bloat, no dark patterns, no artificial engagement mechanics. Users should feel clarity, not overwhelm. The design system uses subtle animations and thoughtful micro-interactions to create a premium feel without distraction.",
-      },
-      {
-        heading: "What I'm Learning",
-        body: "Building Rhythmé solo is teaching me to balance multiple domains simultaneously: product strategy, technical execution, design craft, and business thinking. I'm learning how to scope features realistically, make strategic tradeoffs, and maintain quality under resource constraints. Most importantly, I'm learning what it takes to build a company, not just a product.",
-      },
-      {
-        heading: "Challenges & Decisions",
-        body: "The biggest challenge has been resisting feature creep. Every productivity problem feels solvable, but not every solution belongs in version 1. I've had to ruthlessly prioritize what creates immediate value versus what can wait. Another key decision was building custom solutions instead of relying on third-party services—more upfront work, but total control over user experience and data handling.",
-      },
-      {
-        heading: "Current Progress",
-        body: "Core infrastructure is complete: authentication, database schema, API layers, and component library. Currently building out the habit tracking and mood logging interfaces. Planning to launch private beta with 20-30 users in Q1 2025 to validate core assumptions before expanding features. The goal is to prove the concept works before scaling investment.",
-      },
-      {
-        heading: "What's Next",
-        body: "Immediate focus is finishing Phase 1 features and running internal beta. Then expanding to early adopters for feedback and iteration. Long-term plan includes AI-powered insights, community accountability features, and mobile apps. But those only happen after validating that the core product solves a real problem people will pay for.",
+        heading: "What I Learned",
+        body: "Building alone forces you to prioritize. I realized that a database with perfect theoretical schema normalization is useless if it makes the frontend queries slow and hard to read. I learned to choose simplicity over perfect database theory.",
       },
     ],
-    logoImage: "/R.svg",
-    coverImage: "/project-cover.jpg",
+    takeaways: [
+      "A daily tracker is only useful if checking an item feels immediate.",
+      "Flat table structures are easier to query, debug, and change.",
+      "Deleting half-finished features is often better than trying to make them work.",
+    ],
+    logoImage: "/R.png",
+    featured: true,
   },
   {
-    slug: "music-recommender",
-    title: "Music Recommender Web App",
-    tagline: "Logic-driven recommendations without external APIs.",
+    slug: "grooveestrella",
+    title: "GrooveEstrella",
+    tagline: "A music matching app built in a team of five using a deterministic scoring matrix.",
     year: "2024",
     status: "shipped",
     summary:
-      "An academic project where I led a small team to design and build a music recommender web app using our own datasets and logic.",
-    role: "Team lead & developer",
-    techStack: ["React", "TypeScript", "Node.js"],
-    links: [
-        {label: "Try it out Now", href: "https://grooveestrella.vercel.app/"}
-    ],
+      "Instead of plugging in Spotify or Last.fm recommendation APIs, we wanted to build a music recommendation engine ourselves. We designed our own matching logic using survey responses and weighted preferences.",
+    role: "Technical Lead",
+    techStack: ["React", "TypeScript", "Node.js", "Vite"],
+    links: [{ label: "Live project", href: "https://grooveestrella.vercel.app/" }],
     sections: [
       {
-        heading: "Project Overview",
-        body: "We built a recommendation engine based on user surveys, preferences, and manually curated song attributes instead of relying on third-party APIs.",
+        heading: "Why we built it",
+        body: "We wanted to see if we could build a music matcher without relying on black-box recommendation APIs. We set out to write our own scoring logic that matches user surveys against a local track database.",
+      },
+      {
+        heading: "The Challenge",
+        body: "Qualitative preferences like mood or tempo are hard to map. We designed a simple scoring matrix. When a user selects a mood, our script weights matching genre tags and filters out tracks below a specific score threshold.",
       },
       {
         heading: "My Role",
-        body: "I coordinated the team, designed the data flow, and implemented core logic for the recommendation system along with the front-end experience.",
+        body: "I coordinated the development workflow for our team of five and wrote the React frontend. I also helped write the scoring parser. This was my first experience managing git branches and pull requests across a team.",
       },
       {
-        heading: "Key Outcomes",
-        body: "Learned how to lead a small technical team, collect data, and build something usable from scratch under academic constraints.",
-      },
-      {
-        heading: "What's Next",
-        body: "I will revisit this project, as soon as my Rhythmé's MVP V1 is completed. Because this idea was something unique and Me and my team will try to bring it back to life with a new vision that I am working on the side right now.",
+        heading: "What I Learned",
+        body: "We wasted three days at the start because our database parser expected one date format while the frontend sent another. This taught me that before writing any code, team developers must agree on data structures first.",
       },
     ],
-    logoImage: "/G.svg",
+    takeaways: [
+      "Agree on API data formats before writing frontend or backend code.",
+      "Simple matching logic is much easier to test and debug than complex heuristics.",
+      "A clear coordination strategy keeps team projects moving forward.",
+    ],
+    logoImage: "/G.png",
   },
 ];
 
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
+export const projectsOverview = projects;
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
 }

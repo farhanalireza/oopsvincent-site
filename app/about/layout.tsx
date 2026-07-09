@@ -1,13 +1,12 @@
-import React from 'react'
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "About | oopsvincent",
+  title: "About",
   description:
-    "Vincent (aka oopsvincent) — web developer, product thinker, and creator of Rhythmé. Exploring the intersection of design, technology, and human growth.",
+    "About Farhan Ali Reza: how he thinks, what drives his work, and the kind of software products he wants to build.",
 };
 
-
-export default function layout({ children }: { children: React.ReactNode }) {
-    return <main>{children}</main> ;
+export default function AboutLayout({ children }: { children: ReactNode }) {
+  return children;
 }
