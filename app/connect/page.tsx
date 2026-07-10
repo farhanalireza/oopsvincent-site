@@ -8,6 +8,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Connect",
   description: "Contact Farhan Ali Reza for freelance projects, startup discussions, or recruitment.",
+  alternates: {
+    canonical: "/connect",
+  },
+  openGraph: {
+    title: "Connect | Farhan Ali Reza",
+    description: "Contact Farhan Ali Reza for freelance projects, startup discussions, or recruitment.",
+    url: "/connect",
+  },
 };
 
 export default function ConnectPage() {
@@ -18,8 +26,42 @@ export default function ConnectPage() {
     "technical consultations",
   ];
 
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Connect | Farhan Ali Reza",
+    "description": "Contact Farhan Ali Reza for freelance projects, startup discussions, or recruitment.",
+    "url": "https://farhan.amplecen.com/connect",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://farhan.amplecen.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Connect",
+          "item": "https://farhan.amplecen.com/connect"
+        }
+      ]
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Farhan Ali Reza",
+      "url": "https://farhan.amplecen.com"
+    }
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageIntro
         eyebrow="Connect"
         title="Let's build something worthwhile."

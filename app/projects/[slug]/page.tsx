@@ -27,6 +27,20 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: project.title,
     description: project.summary,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
+    openGraph: {
+      title: `${project.title} | Farhan Ali Reza`,
+      description: project.summary,
+      url: `/projects/${slug}`,
+      images: [
+        {
+          url: project.logoImage || "/Rhythme.png",
+          alt: `${project.title} Project Logo`,
+        },
+      ],
+    },
   };
 }
 
@@ -38,8 +52,65 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://farhan.amplecen.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://farhan.amplecen.com/projects"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": project.title,
+        "item": `https://farhan.amplecen.com/projects/${project.slug}`
+      }
+    ]
+  };
+
+  const techArticleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": `${project.title} Case Study`,
+    "description": project.summary,
+    "image": project.logoImage ? `https://farhan.amplecen.com${project.logoImage}` : `https://farhan.amplecen.com/Rhythme.png`,
+    "datePublished": project.year.includes("2025") ? "2025-01-01T00:00:00Z" : "2024-01-01T00:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "Farhan Ali Reza",
+      "url": "https://farhan.amplecen.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Farhan Ali Reza",
+      "url": "https://farhan.amplecen.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://farhan.amplecen.com/projects/${project.slug}`
+    },
+    "dependencies": project.techStack.join(", ")
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticleJsonLd) }}
+      />
       <div className="page-shell border-b border-border pt-28 pb-5">
         <Link href="/projects" className="button-ghost">
           <ArrowLeft className="h-4 w-4" />

@@ -6,12 +6,56 @@ import SkillsList from "@/components/site/SkillsList";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "I write code, design database tables, and think about user flows. The part I enjoy most isn't writing code—it's turning an idea into something people can actually use.",
+  description:
+    "I write code, design database tables, and think about user flows. The part I enjoy most isn't writing code—it's turning an idea into something people can actually use.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About | Farhan Ali Reza",
+    description:
+      "I write code, design database tables, and think about user flows. The part I enjoy most isn't writing code—it's turning an idea into something people can actually use.",
+    url: "/about",
+  },
 };
 
 export default function AboutPage() {
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About | Farhan Ali Reza",
+    "description": "I write code, design database tables, and think about user flows. The part I enjoy most isn't writing code—it's turning an idea into something people can actually use.",
+    "url": "https://farhan.amplecen.com/about",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://farhan.amplecen.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://farhan.amplecen.com/about"
+        }
+      ]
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Farhan Ali Reza",
+      "url": "https://farhan.amplecen.com"
+    }
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageIntro
         eyebrow="About"
         title="I build software products from idea to code."

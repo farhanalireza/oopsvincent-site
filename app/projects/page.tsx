@@ -5,18 +5,63 @@ import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import { projectsOverview } from "@/data/projects";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Projects",
   description:
     "Selected software projects by Farhan Ali Reza, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: "Projects | Farhan Ali Reza",
+    description:
+      "Selected software projects by Farhan Ali Reza, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.",
+    url: "/projects",
+  },
 };
 
 export default function ProjectsPage() {
   const featuredProjects = projectsOverview.filter((project) => project.featured);
   const otherProjects = projectsOverview.filter((project) => !project.featured);
 
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Projects | Farhan Ali Reza",
+    "description": "Selected software projects by Farhan Ali Reza, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.",
+    "url": "https://farhan.amplecen.com/projects",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://farhan.amplecen.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://farhan.amplecen.com/projects"
+        }
+      ]
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Farhan Ali Reza",
+      "url": "https://farhan.amplecen.com"
+    }
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageIntro
         eyebrow="Projects"
         title="Software built to solve real problems."

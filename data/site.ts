@@ -12,9 +12,11 @@ export const siteConfig = {
   x: "https://twitter.com/oopsvincent",
   calendar: "https://cal.eu/farhanalireza",
   nowUpdatedAt: "July 9, 2026",
+  siteUrl: "https://farhan.amplecen.com",
 } as const;
 
 export const defaultMetadata: Metadata = {
+  metadataBase: new URL(siteConfig.siteUrl),
   title: {
     default: siteConfig.title,
     template: "%s | Farhan Ali Reza",
@@ -35,17 +37,29 @@ export const defaultMetadata: Metadata = {
     "Supabase",
     "software founder",
   ],
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
     type: "website",
     siteName: "Farhan Ali Reza",
+    images: [
+      {
+        url: "/Rhythme.png",
+        width: 1200,
+        height: 630,
+        alt: "Farhan Ali Reza Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
     creator: "@oopsvincent",
+    images: ["/Rhythme.png"],
   },
   robots: {
     index: true,
@@ -175,8 +189,10 @@ export const personJsonLd = {
   name: siteConfig.name,
   alternateName: siteConfig.shortName,
   email: siteConfig.email,
-  jobTitle: "Full-Stack Developer and Founder",
-  url: "/",
+  jobTitle: "Software Developer",
+  url: siteConfig.siteUrl,
+  image: `${siteConfig.siteUrl}/avatar.png`,
+  description: siteConfig.description,
   sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.x],
   knowsAbout: [
     "Full-stack development",
@@ -184,5 +200,10 @@ export const personJsonLd = {
     "User experience",
     "Database schema design",
     "Next.js",
-  ],
+    "TypeScript",
+    "React",
+    "PostgreSQL",
+    "Supabase",
+    "Tailwind CSS"
+  ]
 };

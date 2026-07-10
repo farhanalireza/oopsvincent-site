@@ -5,19 +5,45 @@ import Reveal from "@/components/site/Reveal";
 import { projectsOverview } from "@/data/projects";
 import { homeHighlights, skillGroups, workFocus } from "@/data/site";
 import SkillsList from "@/components/site/SkillsList";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Home",
   description:
     "I build software products. Right now, I'm building Rhythme—a daily system for planning, habits, and reflection.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Home | Farhan Ali Reza",
+    description:
+      "I build software products. Right now, I'm building Rhythme—a daily system for planning, habits, and reflection.",
+    url: "/",
+  },
 };
 
 export default function Home() {
   const featuredProject = projectsOverview.find((project) => project.featured);
   const secondaryProject = projectsOverview.find((project) => !project.featured);
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Farhan Ali Reza",
+    url: "https://farhan.amplecen.com",
+    description: "I build software products from idea to code.",
+    publisher: {
+      "@type": "Person",
+      name: "Farhan Ali Reza",
+    },
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <section className="page-shell section-shell flex min-h-screen items-center pt-28">
         <div className="flex flex-col gap-14">
           <Reveal className="max-w-4xl">

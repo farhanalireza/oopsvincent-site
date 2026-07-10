@@ -8,11 +8,53 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Now",
   description: "A snapshot of what has my attention right now, including building Rhythme and learning latency compensation.",
+  alternates: {
+    canonical: "/now",
+  },
+  openGraph: {
+    title: "Now | Farhan Ali Reza",
+    description: "A snapshot of what has my attention right now, including building Rhythme and learning latency compensation.",
+    url: "/now",
+  },
 };
 
 export default function NowPage() {
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Now | Farhan Ali Reza",
+    "description": "A snapshot of what has my attention right now, including building Rhythme and learning latency compensation.",
+    "url": "https://farhan.amplecen.com/now",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://farhan.amplecen.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Now",
+          "item": "https://farhan.amplecen.com/now"
+        }
+      ]
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Farhan Ali Reza",
+      "url": "https://farhan.amplecen.com"
+    }
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageIntro
         eyebrow="Now"
         title="What I'm building and learning this week."
@@ -42,7 +84,7 @@ export default function NowPage() {
             {nowSections.map((section, index) => (
               <Reveal key={section.title} delay={index * 0.06}>
                 <article className="surface p-7">
-                  <p className="eyebrow">{section.title}</p>
+                  <h3 className="eyebrow">{section.title}</h3>
                   <p className="mt-5 text-sm leading-7 text-muted-foreground">{section.body}</p>
                 </article>
               </Reveal>

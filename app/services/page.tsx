@@ -7,6 +7,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Services",
   description: "Thoughtful software development, design, and product strategy for founders and startups.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Services | Farhan Ali Reza",
+    description: "Thoughtful software development, design, and product strategy for founders and startups.",
+    url: "/services",
+  },
 };
 
 const servicesList = [
@@ -169,8 +177,42 @@ const faqs = [
 ];
 
 export default function ServicesPage() {
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Services | Farhan Ali Reza",
+    "description": "Thoughtful software development, design, and product strategy for founders and startups.",
+    "url": "https://farhan.amplecen.com/services",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://farhan.amplecen.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://farhan.amplecen.com/services"
+        }
+      ]
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Farhan Ali Reza",
+      "url": "https://farhan.amplecen.com"
+    }
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageIntro
         eyebrow="Services"
         title="Let's build something worth keeping."
