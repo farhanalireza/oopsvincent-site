@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/site/Reveal";
 import { getProjectBySlug, projects } from "@/data/projects";
+import { SkillIcon } from "@/components/site/SkillIcon";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -188,7 +189,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               <p className="eyebrow">Tech stack</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {project.techStack.map((tech) => (
-                  <span key={tech} className="chip">
+                  <span key={tech} className="chip gap-2">
+                    <SkillIcon name={tech} className="h-4 w-4 shrink-0" />
                     {tech}
                   </span>
                 ))}

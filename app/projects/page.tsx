@@ -6,6 +6,7 @@ import Reveal from "@/components/site/Reveal";
 import { projectsOverview } from "@/data/projects";
 
 import type { Metadata } from "next";
+import { SkillIcon } from "@/components/site/SkillIcon";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -117,7 +118,8 @@ export default function ProjectsPage() {
                       <p className="eyebrow">Stack</p>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {project.techStack.map((tech) => (
-                          <span key={tech} className="chip">
+                          <span key={tech} className="chip gap-2">
+                            <SkillIcon name={tech} className="h-4 w-4 shrink-0" />
                             {tech}
                           </span>
                         ))}
@@ -173,7 +175,8 @@ export default function ProjectsPage() {
                   <p className="mt-3 text-base leading-7 text-muted-foreground">{project.summary}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
-                      <span key={tech} className="chip">
+                      <span key={tech} className="chip gap-2">
+                        <SkillIcon name={tech} className="h-4 w-4 shrink-0" />
                         {tech}
                       </span>
                     ))}

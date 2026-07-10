@@ -143,7 +143,7 @@ export const skillGroups = [
   },
   {
     title: "Interface & Tooling",
-    items: ["Tailwind CSS", "Framer Motion", "Git", "Figma"],
+    items: ["Tailwind CSS", "Framer Motion", "Git", "Figma", "shadcn/ui"],
   },
 ];
 

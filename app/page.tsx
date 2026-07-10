@@ -6,6 +6,7 @@ import { projectsOverview } from "@/data/projects";
 import { homeHighlights, skillGroups, workFocus } from "@/data/site";
 import SkillsList from "@/components/site/SkillsList";
 import type { Metadata } from "next";
+import { SkillIcon } from "@/components/site/SkillIcon";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -169,7 +170,8 @@ export default function Home() {
                   </p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {project!.techStack.slice(0, 4).map((tech) => (
-                      <span key={tech} className="chip">
+                      <span key={tech} className="chip gap-2">
+                        <SkillIcon name={tech} className="h-4 w-4 shrink-0" />
                         {tech}
                       </span>
                     ))}

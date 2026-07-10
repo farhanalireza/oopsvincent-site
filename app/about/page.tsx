@@ -59,7 +59,7 @@ export default function AboutPage() {
       <PageIntro
         eyebrow="About"
         title="I build software products from idea to code."
-        description="I study computer science, write code, and design database tables. What I enjoy most is the step-by-step process of starting with a problem, drafting a layout, and making it functional."
+        description="I study computer science, shape visual layouts, write code, and design database tables. What I enjoy most is the step-by-step process of starting with a problem, drafting a layout, and making it functional."
       />
 
       <section className="border-t border-border">
@@ -85,7 +85,7 @@ export default function AboutPage() {
           <Reveal delay={0.24} className="surface p-8 md:p-10">
             <p className="eyebrow">Where I&apos;m heading</p>
             <p className="mt-5 prose-copy text-sm md:text-base">
-              I am a Computer Science graduate focused on becoming a disciplined product developer. My goal is to build software that lasts, which means choosing readability and solid fundamentals over temporary trends. I want to spend my career building simple, reliable tools that people use every day.
+              I am a Computer Science Diploma Graduate focused on becoming a disciplined product developer. My goal is to build software that lasts, which means choosing readability and solid fundamentals over temporary trends. I want to spend my career building simple, reliable tools that people use every day.
             </p>
           </Reveal>
         </div>

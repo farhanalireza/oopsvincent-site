@@ -9,7 +9,8 @@ import {
   SiTailwindcss, 
   SiFramer, 
   SiGit, 
-  SiFigma 
+  SiFigma,
+  SiShadcnui
 } from "react-icons/si";
 import { Database } from "lucide-react";
 
@@ -39,6 +40,8 @@ export function SkillIcon({ name, className }: { name: string; className?: strin
       return <SiGit className={className} />;
     case "figma":
       return <SiFigma className={className} />;
+    case "shadcn/ui":
+      return <SiShadcnui className={className} />;
     default:
       return null;
   }
