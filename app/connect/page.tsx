@@ -7,13 +7,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Connect",
-  description: "Contact Farhan Ali Reza for freelance projects, startup discussions, or recruitment.",
+  description: `Contact ${siteConfig.name} for freelance projects, startup discussions, or recruitment.`,
   alternates: {
     canonical: "/connect",
   },
   openGraph: {
-    title: "Connect | Farhan Ali Reza",
-    description: "Contact Farhan Ali Reza for freelance projects, startup discussions, or recruitment.",
+    title: `Connect | ${siteConfig.name}`,
+    description: `Contact ${siteConfig.name} for freelance projects, startup discussions, or recruitment.`,
     url: "/connect",
   },
 };
@@ -28,10 +28,10 @@ export default function ConnectPage() {
 
   const webPageJsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Connect | Farhan Ali Reza",
-    "description": "Contact Farhan Ali Reza for freelance projects, startup discussions, or recruitment.",
-    "url": "https://farhan.amplecen.com/connect",
+    "@type": "ContactPage",
+    "name": `Connect | ${siteConfig.name}`,
+    "description": `Contact ${siteConfig.name} for freelance projects, startup discussions, or recruitment.`,
+    "url": `${siteConfig.siteUrl}/connect`,
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -39,20 +39,20 @@ export default function ConnectPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://farhan.amplecen.com"
+          "item": siteConfig.siteUrl
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Connect",
-          "item": "https://farhan.amplecen.com/connect"
+          "item": `${siteConfig.siteUrl}/connect`
         }
       ]
     },
     "author": {
       "@type": "Person",
-      "name": "Farhan Ali Reza",
-      "url": "https://farhan.amplecen.com"
+      "name": siteConfig.name,
+      "url": siteConfig.siteUrl
     }
   };
 
@@ -148,6 +148,41 @@ export default function ConnectPage() {
               </div>
             </Reveal>
           </div>
+
+          <Reveal delay={0.2} className="mt-12 pt-12 border-t border-border/40">
+            <div className="flex flex-col gap-3">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Or find me on</p>
+              <div className="flex flex-wrap gap-6 mt-1">
+                <Link 
+                  href={siteConfig.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-medium text-sm"
+                >
+                  GitHub
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+                <Link 
+                  href={siteConfig.linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-medium text-sm"
+                >
+                  LinkedIn
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+                <Link 
+                  href={siteConfig.x} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-medium text-sm"
+                >
+                  X (Twitter)
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

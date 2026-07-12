@@ -12,6 +12,32 @@ export default function Footer() {
           <div className="max-w-xl text-sm text-muted-foreground">
             <p>{siteConfig.name} — Full-Stack Developer & Founder.</p>
             <p className="mt-1 text-xs opacity-80">Currently developing Rhythme. © {currentYear}</p>
+            <div className="flex gap-4 mt-3 text-xs">
+              <Link 
+                href={siteConfig.github} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="transition-colors hover:text-foreground"
+              >
+                GitHub
+              </Link>
+              <Link 
+                href={siteConfig.linkedin} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="transition-colors hover:text-foreground"
+              >
+                LinkedIn
+              </Link>
+              <Link 
+                href={siteConfig.x} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="transition-colors hover:text-foreground"
+              >
+                X (Twitter)
+              </Link>
+            </div>
           </div>
           <nav aria-label="Footer" className="flex flex-wrap gap-5 text-sm">
             {navLinks.map((link) => (

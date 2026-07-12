@@ -7,18 +7,19 @@ import { projectsOverview } from "@/data/projects";
 
 import type { Metadata } from "next";
 import { SkillIcon } from "@/components/site/SkillIcon";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Selected software projects by Farhan Ali Reza, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.",
+    `Selected software projects by ${siteConfig.name}, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.`,
   alternates: {
     canonical: "/projects",
   },
   openGraph: {
-    title: "Projects | Farhan Ali Reza",
+    title: `Projects | ${siteConfig.name}`,
     description:
-      "Selected software projects by Farhan Ali Reza, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.",
+      `Selected software projects by ${siteConfig.name}, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.`,
     url: "/projects",
   },
 };
@@ -29,10 +30,10 @@ export default function ProjectsPage() {
 
   const webPageJsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Projects | Farhan Ali Reza",
-    "description": "Selected software projects by Farhan Ali Reza, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.",
-    "url": "https://farhan.amplecen.com/projects",
+    "@type": "CollectionPage",
+    "name": `Projects | ${siteConfig.name}`,
+    "description": `Selected software projects by ${siteConfig.name}, including Rhythme and GrooveEstrella, with a focus on problem, solution, stack, and outcomes.`,
+    "url": `${siteConfig.siteUrl}/projects`,
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -40,20 +41,20 @@ export default function ProjectsPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://farhan.amplecen.com"
+          "item": siteConfig.siteUrl
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Projects",
-          "item": "https://farhan.amplecen.com/projects"
+          "item": `${siteConfig.siteUrl}/projects`
         }
       ]
     },
     "author": {
       "@type": "Person",
-      "name": "Farhan Ali Reza",
-      "url": "https://farhan.amplecen.com"
+      "name": siteConfig.name,
+      "url": siteConfig.siteUrl
     }
   };
 

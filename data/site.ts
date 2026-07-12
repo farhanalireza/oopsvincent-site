@@ -196,9 +196,7 @@ export const personJsonLd = {
   sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.x],
   knowsAbout: [
     "Full-stack development",
-    "Product design",
-    "User experience",
-    "Database schema design",
+    "Web design",
     "Next.js",
     "TypeScript",
     "React",

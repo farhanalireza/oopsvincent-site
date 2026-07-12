@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import type { Metadata } from "next";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     canonical: "/services",
   },
   openGraph: {
-    title: "Services | Farhan Ali Reza",
+    title: `Services | ${siteConfig.name}`,
     description: "Thoughtful software development, design, and product strategy for founders and startups.",
     url: "/services",
   },
@@ -64,16 +65,6 @@ const servicesList = [
     ],
   },
   {
-    title: "Logo Design",
-    description: "Design simple, memorable logos with long-term usability in mind.",
-    deliverables: [
-      "Primary logo",
-      "Alternate versions",
-      "Monochrome variants",
-      "Export files",
-    ],
-  },
-  {
     title: "Brand Design",
     description: "Create a consistent visual identity beyond the logo.",
     deliverables: [
@@ -82,28 +73,6 @@ const servicesList = [
       "Brand guidelines",
       "Social assets",
       "Visual direction",
-    ],
-  },
-  {
-    title: "Marketing Strategy",
-    description: "Help early-stage businesses communicate their product more clearly. Focus on positioning rather than advertising.",
-    deliverables: [
-      "Product positioning",
-      "Messaging",
-      "Customer journey",
-      "Landing page direction",
-      "Launch planning",
-    ],
-  },
-  {
-    title: "Search Engine Optimization (SEO)",
-    description: "Improve how websites are structured for search engines and users.",
-    deliverables: [
-      "Technical SEO",
-      "Metadata",
-      "Site structure",
-      "Performance recommendations",
-      "Content guidance",
     ],
   },
 ];
@@ -180,9 +149,9 @@ export default function ServicesPage() {
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Services | Farhan Ali Reza",
+    "name": `Services | ${siteConfig.name}`,
     "description": "Thoughtful software development, design, and product strategy for founders and startups.",
-    "url": "https://farhan.amplecen.com/services",
+    "url": `${siteConfig.siteUrl}/services`,
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -190,20 +159,20 @@ export default function ServicesPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://farhan.amplecen.com"
+          "item": siteConfig.siteUrl
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Services",
-          "item": "https://farhan.amplecen.com/services"
+          "item": `${siteConfig.siteUrl}/services`
         }
       ]
     },
     "author": {
       "@type": "Person",
-      "name": "Farhan Ali Reza",
-      "url": "https://farhan.amplecen.com"
+      "name": siteConfig.name,
+      "url": siteConfig.siteUrl
     }
   };
 

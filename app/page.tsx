@@ -3,22 +3,22 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/site/Reveal";
 import { projectsOverview } from "@/data/projects";
-import { homeHighlights, skillGroups, workFocus } from "@/data/site";
+import { siteConfig, homeHighlights, skillGroups, workFocus } from "@/data/site";
 import SkillsList from "@/components/site/SkillsList";
 import type { Metadata } from "next";
 import { SkillIcon } from "@/components/site/SkillIcon";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description:
-    "I build software products. Right now, I'm building Rhythme—a daily system for planning, habits, and reflection.",
+  title: {
+    absolute: siteConfig.title,
+  },
+  description: siteConfig.description,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Home | Farhan Ali Reza",
-    description:
-      "I build software products. Right now, I'm building Rhythme—a daily system for planning, habits, and reflection.",
+    title: siteConfig.title,
+    description: siteConfig.description,
     url: "/",
   },
 };
@@ -30,12 +30,12 @@ export default function Home() {
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Farhan Ali Reza",
-    url: "https://farhan.amplecen.com",
-    description: "I build software products from idea to code.",
+    name: siteConfig.name,
+    url: siteConfig.siteUrl,
+    description: siteConfig.description,
     publisher: {
       "@type": "Person",
-      name: "Farhan Ali Reza",
+      name: siteConfig.name,
     },
   };
 
@@ -50,7 +50,7 @@ export default function Home() {
           <Reveal className="max-w-4xl">
             <p className="eyebrow">Developer & Founder</p>
             <h1 className="display-title mt-6">
-              I build software products from idea to code.
+              I&apos;m {siteConfig.name}, a full-stack developer building software products.
             </h1>
             <p className="lede mt-8 max-w-3xl">
               I am a full-stack developer and entrepreneur. Right now, I am building Rhythme—a daily planning and habits tool designed to work without streaks or noisy notifications.

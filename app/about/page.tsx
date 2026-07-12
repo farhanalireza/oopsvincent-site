@@ -1,20 +1,20 @@
 import Reveal from "@/components/site/Reveal";
 import PageIntro from "@/components/site/PageIntro";
-import { aboutPrinciples, experienceTimeline, skillGroups } from "@/data/site";
+import { siteConfig, aboutPrinciples, experienceTimeline, skillGroups } from "@/data/site";
 import type { Metadata } from "next";
 import SkillsList from "@/components/site/SkillsList";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "I write code, design database tables, and think about user flows. The part I enjoy most isn't writing code—it's turning an idea into something people can actually use.",
+    "I study computer science and build software products. What I enjoy most is the process of taking a problem, thinking through how it should work, and turning the idea into functional software.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About | Farhan Ali Reza",
+    title: `About | ${siteConfig.name}`,
     description:
-      "I write code, design database tables, and think about user flows. The part I enjoy most isn't writing code—it's turning an idea into something people can actually use.",
+      "I study computer science and build software products. What I enjoy most is the process of taking a problem, thinking through how it should work, and turning the idea into functional software.",
     url: "/about",
   },
 };
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const webPageJsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "About | Farhan Ali Reza",
-    "description": "I write code, design database tables, and think about user flows. The part I enjoy most isn't writing code—it's turning an idea into something people can actually use.",
-    "url": "https://farhan.amplecen.com/about",
+    "@type": "AboutPage",
+    "name": `About | ${siteConfig.name}`,
+    "description": "I study computer science and build software products. What I enjoy most is the process of taking a problem, thinking through how it should work, and turning the idea into functional software.",
+    "url": `${siteConfig.siteUrl}/about`,
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -33,20 +33,20 @@ export default function AboutPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://farhan.amplecen.com"
+          "item": siteConfig.siteUrl
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "About",
-          "item": "https://farhan.amplecen.com/about"
+          "item": `${siteConfig.siteUrl}/about`
         }
       ]
     },
     "author": {
       "@type": "Person",
-      "name": "Farhan Ali Reza",
-      "url": "https://farhan.amplecen.com"
+      "name": siteConfig.name,
+      "url": siteConfig.siteUrl
     }
   };
 
@@ -58,8 +58,8 @@ export default function AboutPage() {
       />
       <PageIntro
         eyebrow="About"
-        title="I build software products from idea to code."
-        description="I study computer science, shape visual layouts, write code, and design database tables. What I enjoy most is the step-by-step process of starting with a problem, drafting a layout, and making it functional."
+        title={`About ${siteConfig.name}`}
+        description="I study computer science and build software products. What I enjoy most is the process of taking a problem, thinking through how it should work, and turning the idea into functional software."
       />
 
       <section className="border-t border-border">

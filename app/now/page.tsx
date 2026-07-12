@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     canonical: "/now",
   },
   openGraph: {
-    title: "Now | Farhan Ali Reza",
+    title: `Now | ${siteConfig.name}`,
     description: "A snapshot of what has my attention right now, including building Rhythme and learning latency compensation.",
     url: "/now",
   },
@@ -22,9 +22,9 @@ export default function NowPage() {
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Now | Farhan Ali Reza",
+    "name": `Now | ${siteConfig.name}`,
     "description": "A snapshot of what has my attention right now, including building Rhythme and learning latency compensation.",
-    "url": "https://farhan.amplecen.com/now",
+    "url": `${siteConfig.siteUrl}/now`,
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -32,20 +32,20 @@ export default function NowPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://farhan.amplecen.com"
+          "item": siteConfig.siteUrl
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Now",
-          "item": "https://farhan.amplecen.com/now"
+          "item": `${siteConfig.siteUrl}/now`
         }
       ]
     },
     "author": {
       "@type": "Person",
-      "name": "Farhan Ali Reza",
-      "url": "https://farhan.amplecen.com"
+      "name": siteConfig.name,
+      "url": siteConfig.siteUrl
     }
   };
 

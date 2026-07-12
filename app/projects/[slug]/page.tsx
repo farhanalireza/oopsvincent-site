@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/site/Reveal";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { SkillIcon } from "@/components/site/SkillIcon";
+import { siteConfig } from "@/data/site";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       canonical: `/projects/${slug}`,
     },
     openGraph: {
-      title: `${project.title} | Farhan Ali Reza`,
+      title: `${project.title} | ${siteConfig.name}`,
       description: project.summary,
       url: `/projects/${slug}`,
       images: [
@@ -61,19 +62,19 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://farhan.amplecen.com"
+        "item": siteConfig.siteUrl
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Projects",
-        "item": "https://farhan.amplecen.com/projects"
+        "item": `${siteConfig.siteUrl}/projects`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": project.title,
-        "item": `https://farhan.amplecen.com/projects/${project.slug}`
+        "item": `${siteConfig.siteUrl}/projects/${project.slug}`
       }
     ]
   };
@@ -83,21 +84,21 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     "@type": "TechArticle",
     "headline": `${project.title} Case Study`,
     "description": project.summary,
-    "image": project.logoImage ? `https://farhan.amplecen.com${project.logoImage}` : `https://farhan.amplecen.com/Rhythme.png`,
+    "image": project.logoImage ? `${siteConfig.siteUrl}${project.logoImage}` : `${siteConfig.siteUrl}/Rhythme.png`,
     "datePublished": project.year.includes("2025") ? "2025-01-01T00:00:00Z" : "2024-01-01T00:00:00Z",
     "author": {
       "@type": "Person",
-      "name": "Farhan Ali Reza",
-      "url": "https://farhan.amplecen.com"
+      "name": siteConfig.name,
+      "url": siteConfig.siteUrl
     },
     "publisher": {
       "@type": "Person",
-      "name": "Farhan Ali Reza",
-      "url": "https://farhan.amplecen.com"
+      "name": siteConfig.name,
+      "url": siteConfig.siteUrl
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://farhan.amplecen.com/projects/${project.slug}`
+      "@id": `${siteConfig.siteUrl}/projects/${project.slug}`
     },
     "dependencies": project.techStack.join(", ")
   };
