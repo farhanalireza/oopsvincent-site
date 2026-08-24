@@ -189,23 +189,23 @@ export default function ServicesPage() {
       />
 
       <section className="border-t border-border">
-        <div className="page-shell section-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="page-shell section-shell grid gap-8 sm:gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
             <p className="eyebrow">Philosophy</p>
-            <h2 className="section-title mt-5">How I approach client work</h2>
+            <h2 className="section-title mt-3 sm:mt-4">How I approach client work</h2>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="prose-copy space-y-6">
-              <p className="text-xl font-medium text-foreground">
+            <div className="prose-copy space-y-5 sm:space-y-6">
+              <p className="font-newsreader text-xl sm:text-2xl font-semibold text-foreground">
                 I prefer long-term thinking over quick fixes.
               </p>
-              <p>
+              <p className="text-sm sm:text-base leading-relaxed">
                 Before writing code, I try to understand the problem, the users, and the goals of the project. Good software is rarely the result of rushing into implementation.
               </p>
-              <p>
+              <p className="text-sm sm:text-base leading-relaxed">
                 I value clear communication, realistic expectations, and maintainable solutions that can continue to evolve after launch.
               </p>
-              <div className="pt-4">
+              <div className="pt-2 sm:pt-4">
                 <Link href="/connect" className="button-primary">
                   Discuss a project
                   <ArrowRight className="h-4 w-4" />
@@ -216,27 +216,30 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ================= OFFERINGS ================= */}
       <section className="border-t border-border">
         <div className="page-shell section-shell">
-          <Reveal className="max-w-3xl">
+          <Reveal className="max-w-2xl">
             <p className="eyebrow">Offerings</p>
-            <h2 className="section-title mt-5">How I can help</h2>
+            <h2 className="section-title mt-3 sm:mt-4">How I can help</h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 sm:mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {servicesList.map((service, index) => (
               <Reveal key={service.title} delay={index * 0.05}>
-                <div className="surface flex h-full flex-col p-8">
-                  <h3 className="font-space-grotesk text-2xl font-bold">{service.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-muted-foreground flex-grow">
-                    {service.description}
-                  </p>
-                  <div className="mt-8 border-t border-border pt-6">
+                <div className="surface flex h-full flex-col justify-between p-6 sm:p-8 transition-all hover:border-accent/40">
+                  <div>
+                    <h3 className="font-newsreader text-xl sm:text-2xl font-semibold">{service.title}</h3>
+                    <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </div>
+                  <div className="mt-6 sm:mt-8 border-t border-border/70 pt-5 sm:pt-6">
                     <p className="text-xs font-semibold uppercase tracking-wider text-foreground">Typical deliverables</p>
-                    <ul className="mt-4 space-y-2.5">
+                    <ul className="mt-3.5 space-y-2.5">
                       {service.deliverables.map((item) => (
-                        <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary opacity-80" />
+                        <li key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -249,15 +252,16 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ================= FOCUS & COMPATIBILITY ================= */}
       <section className="border-t border-border">
-        <div className="page-shell section-shell grid gap-12 lg:grid-cols-2">
+        <div className="page-shell section-shell grid gap-8 sm:gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow">Focus</p>
-            <h2 className="section-title mt-5 font-space-grotesk">Projects I&apos;m interested in</h2>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <h2 className="section-title mt-3 sm:mt-4">Projects I&apos;m interested in</h2>
+            <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4 sm:grid-cols-2">
               {idealProjects.map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-full border border-border bg-card px-5 py-3 text-sm">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                <div key={item} className="flex items-center gap-3 rounded-full border border-border bg-card px-4 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm transition-all hover:border-accent/40">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -266,11 +270,11 @@ export default function ServicesPage() {
 
           <Reveal delay={0.08}>
             <p className="eyebrow">Compatibility</p>
-            <h2 className="section-title mt-5 font-space-grotesk">We might work well together if...</h2>
-            <div className="mt-8 space-y-4">
+            <h2 className="section-title mt-3 sm:mt-4">We might work well together if...</h2>
+            <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
               {goodFitReasons.map((reason) => (
-                <div key={reason} className="surface-muted p-6">
-                  <p className="text-sm font-medium text-foreground">{reason}</p>
+                <div key={reason} className="surface p-4 sm:p-5 transition-all hover:border-accent/40">
+                  <p className="text-xs sm:text-sm font-medium text-foreground">{reason}</p>
                 </div>
               ))}
             </div>
@@ -278,22 +282,25 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ================= COLLABORATION PROCESS ================= */}
       <section className="border-t border-border">
         <div className="page-shell section-shell">
-          <Reveal className="max-w-3xl">
-            <p className="eyebrow">Collaboration</p>
-            <h2 className="section-title mt-5">What working together looks like</h2>
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">Collaboration Process</p>
+            <h2 className="section-title mt-3 sm:mt-4">What working together looks like</h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-4">
+          <div className="mt-10 sm:mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
             {processSteps.map((step, index) => (
               <Reveal key={step.title} delay={index * 0.06}>
-                <div className="surface p-8 relative h-full">
-                  <span className="font-space-grotesk text-4xl font-extrabold text-muted-foreground/20 absolute top-6 right-6">
-                    {step.step}
-                  </span>
-                  <h3 className="font-space-grotesk text-xl font-bold mt-4">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{step.description}</p>
+                <div className="surface p-6 sm:p-8 flex flex-col justify-between h-full transition-all hover:border-accent/40">
+                  <div>
+                    <span className="font-newsreader text-2xl sm:text-3xl font-bold text-accent">
+                      {step.step}
+                    </span>
+                    <h3 className="font-newsreader text-lg sm:text-xl font-semibold mt-3">{step.title}</h3>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -301,19 +308,20 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ================= FAQS ================= */}
       <section className="border-t border-border">
         <div className="page-shell section-shell">
-          <Reveal className="max-w-3xl">
+          <Reveal className="max-w-2xl">
             <p className="eyebrow">FAQ</p>
-            <h2 className="section-title mt-5">Frequently asked questions</h2>
+            <h2 className="section-title mt-3 sm:mt-4">Frequently asked questions</h2>
           </Reveal>
 
-          <div className="mt-12 max-w-4xl space-y-6">
+          <div className="mt-10 sm:mt-12 max-w-4xl space-y-4 sm:space-y-6">
             {faqs.map((faq, index) => (
               <Reveal key={faq.question} delay={index * 0.05}>
-                <div className="surface p-8">
-                  <h3 className="font-space-grotesk text-xl font-bold">{faq.question}</h3>
-                  <p className="mt-4 text-sm leading-7 text-muted-foreground">{faq.answer}</p>
+                <div className="surface p-6 sm:p-8 transition-all hover:border-accent/40">
+                  <h3 className="font-newsreader text-lg sm:text-xl font-semibold">{faq.question}</h3>
+                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
                 </div>
               </Reveal>
             ))}
@@ -321,15 +329,16 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ================= CTA BANNER ================= */}
       <section className="border-t border-border">
         <div className="page-shell section-shell">
-          <Reveal className="surface-muted max-w-4xl p-8 md:p-12">
+          <Reveal className="surface-muted max-w-4xl p-7 sm:p-10 md:p-12">
             <p className="eyebrow">Contact</p>
-            <h2 className="section-title mt-5">Have a project in mind?</h2>
-            <p className="lede mt-5 max-w-2xl">
+            <h2 className="section-title mt-3 sm:mt-4">Have a project in mind?</h2>
+            <p className="lede mt-4 max-w-2xl">
               Whether you&apos;re starting from an idea or improving an existing product, I&apos;d be happy to hear about it.
             </p>
-            <div className="mt-8">
+            <div className="mt-7 sm:mt-9 flex flex-wrap items-center gap-3.5">
               <Link href="/connect" className="button-primary">
                 Get in touch
                 <ArrowRight className="h-4 w-4" />

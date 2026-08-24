@@ -30,10 +30,10 @@ export default function SkillsList({ items }: SkillsListProps) {
             hidden: { opacity: 0, y: 15, scale: 0.9 },
             show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 120, damping: 14 } }
           }}
-          whileHover={{ scale: 1.05, y: -2 }}
-          className="chip gap-2 cursor-default"
+          whileHover={{ scale: 1.04, y: -2 }}
+          className="chip gap-1.5 sm:gap-2 cursor-default hover:border-accent/50 transition-colors"
         >
-          <SkillIcon name={item} className="h-4 w-4 shrink-0" />
+          <SkillIcon name={item} className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
           {item}
         </motion.span>
       ))}

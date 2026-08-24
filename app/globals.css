@@ -1,79 +1,78 @@
 @import "tailwindcss";
-/* @import "tw-animate-css"; */
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --card: oklch(0.995 0.006 95);
-  --card-foreground: oklch(0.21 0.01 85);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.34 0.05 70);
-  --primary-foreground: oklch(0.985 0.002 95);
-  --secondary: oklch(0.96 0.008 92);
-  --secondary-foreground: oklch(0.25 0.012 84);
-  --muted: oklch(0.965 0.01 90);
-  --muted-foreground: oklch(0.47 0.013 75);
-  --accent: oklch(0.94 0.018 88);
-  --accent-foreground: oklch(0.24 0.012 84);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: #fafafa;
-  --border: oklch(0.88 0.012 88);
-  --input: oklch(0.88 0.012 88);
-  --ring: oklch(0.62 0.03 74);
-  --font-display: "Space Grotesk", sans-serif;
-  --font-sans: "Inter", sans-serif;
+  --background: #f5f4eb;
+  --foreground: #292828;
+  --card: #ffffff;
+  --card-foreground: #292828;
+  --popover: #ffffff;
+  --popover-foreground: #292828;
+  --primary: #292828;
+  --primary-foreground: #f5f4eb;
+  --secondary: #eae8dc;
+  --secondary-foreground: #292828;
+  --muted: #eae8dc;
+  --muted-foreground: #66635f;
+  --accent: #6293c9;
+  --accent-foreground: #ffffff;
+  --destructive: #c2410c;
+  --destructive-foreground: #f5f4eb;
+  --border: #dfdcce;
+  --input: #dfdcce;
+  --ring: #6293c9;
+  --font-display: var(--font-newsreader), "Newsreader", Georgia, serif;
+  --font-sans: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --radius: 1rem;
-  --background: oklch(0.985 0.008 92);
-  --foreground: oklch(0.18 0.012 82);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --chart-1: #6293c9;
+  --chart-2: #292828;
+  --chart-3: #66635f;
+  --chart-4: #a4b8c9;
+  --chart-5: #dfdcce;
+  --sidebar: #f5f4eb;
+  --sidebar-foreground: #292828;
+  --sidebar-primary: #292828;
+  --sidebar-primary-foreground: #f5f4eb;
+  --sidebar-accent: #eae8dc;
+  --sidebar-accent-foreground: #292828;
+  --sidebar-border: #dfdcce;
+  --sidebar-ring: #6293c9;
 }
 
 .dark {
-  --background: oklch(0.16 0.008 80);
-  --foreground: oklch(0.96 0.006 92);
-  --card: oklch(0.2 0.01 80);
-  --card-foreground: oklch(0.96 0.006 92);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.86 0.03 88);
-  --primary-foreground: oklch(0.18 0.012 82);
-  --secondary: oklch(0.25 0.01 80);
-  --secondary-foreground: oklch(0.96 0.006 92);
-  --muted: oklch(0.23 0.008 80);
-  --muted-foreground: oklch(0.74 0.008 82);
-  --accent: oklch(0.28 0.012 80);
-  --accent-foreground: oklch(0.96 0.006 92);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: #ededed;
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #292828;
+  --foreground: #f5f4eb;
+  --card: #333232;
+  --card-foreground: #f5f4eb;
+  --popover: #333232;
+  --popover-foreground: #f5f4eb;
+  --primary: #f5f4eb;
+  --primary-foreground: #292828;
+  --secondary: #3d3b3b;
+  --secondary-foreground: #f5f4eb;
+  --muted: #383737;
+  --muted-foreground: #beb9ae;
+  --accent: #6293c9;
+  --accent-foreground: #f5f4eb;
+  --destructive: #ef4444;
+  --destructive-foreground: #f5f4eb;
+  --border: rgba(245, 244, 235, 0.12);
+  --input: rgba(245, 244, 235, 0.15);
+  --ring: #6293c9;
+  --chart-1: #6293c9;
+  --chart-2: #f5f4eb;
+  --chart-3: #beb9ae;
+  --chart-4: #a4b8c9;
+  --chart-5: #454343;
+  --sidebar: #292828;
+  --sidebar-foreground: #f5f4eb;
+  --sidebar-primary: #f5f4eb;
+  --sidebar-primary-foreground: #292828;
+  --sidebar-accent: #3d3b3b;
+  --sidebar-accent-foreground: #f5f4eb;
+  --sidebar-border: rgba(245, 244, 235, 0.12);
+  --sidebar-ring: #6293c9;
 }
 
 @theme inline {
@@ -96,8 +95,13 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-space-grotesk: var(--font-display);
-  --font-inter: var(--font-sans);
+  --font-newsreader: var(--font-newsreader), "Newsreader", Georgia, serif;
+  --font-display: var(--font-newsreader), "Newsreader", Georgia, serif;
+  --font-serif: var(--font-newsreader), "Newsreader", Georgia, serif;
+  --font-space-grotesk: var(--font-newsreader), "Newsreader", Georgia, serif;
+  --font-manrope: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -117,12 +121,18 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-newsreader), "Newsreader", Georgia, serif;
+  font-weight: 600;
+}
+
 * {
   border-color: var(--border);
 }
 
 body {
   background-color: var(--background);
+  color: var(--foreground);
   font-feature-settings: "rlig" 1, "calt" 1;
   min-height: 100vh;
 }
@@ -169,71 +179,75 @@ select {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--primary) 22%, transparent);
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
 .page-shell {
-  @apply mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20;
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-12 lg:px-20;
 }
 
 .section-shell {
-  @apply py-12 md:py-24;
+  @apply py-10 sm:py-14 md:py-24;
 }
 
 .eyebrow {
-  @apply text-xs font-medium uppercase tracking-[0.24em] text-muted-foreground;
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground;
 }
 
 .page-title {
-  @apply font-space-grotesk text-5xl font-bold leading-none tracking-tight md:text-7xl lg:text-8xl;
+  @apply font-newsreader text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[1.08] tracking-tight;
 }
 
 .display-title {
-  @apply font-space-grotesk text-5xl font-bold leading-none tracking-tight md:text-7xl lg:text-[5.5rem];
+  @apply font-newsreader text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.12] sm:leading-[1.06] tracking-tight;
 }
 
 .section-title {
-  @apply font-space-grotesk text-3xl font-bold tracking-tight md:text-5xl;
+  @apply font-newsreader text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.16];
 }
 
 .lede {
-  @apply text-lg leading-8 text-muted-foreground md:text-xl max-w-3xl;
+  @apply text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground max-w-3xl;
 }
 
 .surface {
-  transition: border-color 0.25s ease, transform 0.25s ease;
-  @apply rounded-[1.5rem] border border-border bg-card;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  @apply rounded-[1.25rem] sm:rounded-[1.5rem] border border-border bg-card;
 }
 
 .surface:hover {
-  border-color: color-mix(in oklab, var(--border) 60%, var(--foreground) 40%);
+  border-color: color-mix(in oklab, var(--border) 40%, var(--foreground) 60%);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
 }
 
 .surface-muted {
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   background:
-    linear-gradient(180deg, color-mix(in oklab, var(--card) 82%, transparent), color-mix(in oklab, var(--muted) 65%, transparent));
-  @apply rounded-[1.5rem] border border-border;
+    linear-gradient(180deg, color-mix(in oklab, var(--card) 85%, transparent), color-mix(in oklab, var(--muted) 70%, transparent));
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  @apply rounded-[1.25rem] sm:rounded-[1.5rem] border border-border;
 }
 
 .surface-muted:hover {
-  border-color: color-mix(in oklab, var(--border) 60%, var(--foreground) 40%);
+  border-color: color-mix(in oklab, var(--border) 40%, var(--foreground) 60%);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
 }
 
 .button-primary {
-  @apply inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-all hover:opacity-92;
+  @apply inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background shadow-sm transition-all hover:opacity-90 hover:shadow active:scale-[0.98];
 }
 
 .button-secondary {
-  @apply inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-5 py-3 text-sm font-medium transition-colors hover:bg-muted;
+  @apply inline-flex items-center gap-2 rounded-full border border-border bg-card/60 backdrop-blur-sm px-5 py-3 text-sm font-medium text-foreground transition-all hover:bg-muted hover:border-foreground/30 active:scale-[0.98];
 }
 
 .button-ghost {
-  @apply inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-primary;
+  @apply inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent;
 }
 
 .chip {
-  @apply inline-flex items-center rounded-full border border-border bg-background px-3 py-1.5 text-xs text-muted-foreground;
+  @apply inline-flex items-center rounded-full border border-border bg-card/80 backdrop-blur-sm px-3 py-1.5 text-xs text-foreground/80 font-medium;
 }
 
 .prose-copy {
@@ -243,35 +257,35 @@ select {
 /* ========== ARTICLE STYLES ========== */
 
 .article {
-  @apply flex flex-col gap-6 font-inter text-lg leading-relaxed tracking-wide mb-20;
+  @apply flex flex-col gap-6 font-sans text-base sm:text-lg leading-relaxed tracking-normal mb-20;
 }
 
 .article > h1 {
-  @apply text-4xl font-space-grotesk font-bold tracking-tight text-center my-6;
+  @apply text-3xl sm:text-4xl font-newsreader font-normal tracking-tight text-center my-6;
 }
 
 .article > h2 {
-  @apply text-3xl font-space-grotesk font-semibold tracking-tight mt-10 mb-4;
+  @apply text-2xl sm:text-3xl font-newsreader font-normal tracking-tight mt-10 mb-4;
 }
 
 .article > h3 {
-  @apply text-2xl font-space-grotesk font-medium tracking-tight mt-8 mb-3;
+  @apply text-xl sm:text-2xl font-newsreader font-normal tracking-tight mt-8 mb-3;
 }
 
 .article > h4 {
-  @apply text-xl font-space-grotesk tracking-tight mt-6 mb-2;
+  @apply text-lg sm:text-xl font-newsreader tracking-tight mt-6 mb-2;
 }
 
 .article > p {
-  @apply text-base font-inter leading-7 text-foreground;
+  @apply text-base font-sans leading-7 text-foreground;
 }
 
 .article > ul {
-  @apply list-disc list-inside pl-5 space-y-2;
+  @apply list-disc list-inside pl-3 sm:pl-5 space-y-2;
 }
 
 .article > ol {
-  @apply list-decimal list-inside pl-5 space-y-2;
+  @apply list-decimal list-inside pl-3 sm:pl-5 space-y-2;
 }
 
 .article > li {
@@ -279,57 +293,54 @@ select {
 }
 
 .article > blockquote {
-  @apply border-l-4 border-gray-400 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-300;
+  @apply border-l-4 border-accent/40 pl-4 italic text-muted-foreground;
 }
 
 .article > a {
-  @apply text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-200 transition-colors;
+  @apply text-accent underline underline-offset-4 hover:opacity-80 transition-opacity;
 }
 
 .article > code {
-  @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm font-mono;
+  @apply bg-muted px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono border border-border;
 }
 
 .article > pre {
-  @apply bg-gray-900 text-gray-100 p-4 rounded-md overflow-x-auto text-sm font-mono;
+  @apply bg-card text-foreground p-4 rounded-xl overflow-x-auto text-xs sm:text-sm font-mono border border-border shadow-sm;
 }
 
 .article > pre > code {
-  @apply bg-transparent p-0;
+  @apply bg-transparent p-0 border-0;
 }
 
 .article > img {
-  @apply w-full max-w-full rounded-md border shadow-lg mt-4 mb-6;
+  @apply w-full max-w-full rounded-xl border border-border shadow-md mt-4 mb-6;
 }
 
 .article > hr {
-  @apply border-t border-gray-300 dark:border-gray-700 my-8;
+  @apply border-t border-border my-8;
 }
 
 .article > table {
-  @apply w-full border-collapse border border-gray-300 dark:border-gray-700;
+  @apply w-full border-collapse border border-border;
 }
 
 .article > thead {
-  @apply bg-gray-100 dark:bg-gray-800;
+  @apply bg-muted;
 }
 
 .article > th,
 .article > td {
-  @apply border px-4 py-2 text-left;
+  @apply border border-border px-3 sm:px-4 py-2 text-left text-sm;
 }
 
-/* Inline code inside paragraphs */
 .article p code {
-  @apply bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm font-mono;
+  @apply bg-muted px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono border border-border;
 }
 
-/* Links inside paragraphs */
 .article p a {
-  @apply text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-[#D50] transition duration-200;
+  @apply text-accent underline underline-offset-4 hover:opacity-80 transition-opacity;
 }
 
-/* globals.css */
 .animated-underline {
   position: relative;
 }

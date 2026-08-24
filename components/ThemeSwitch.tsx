@@ -21,25 +21,25 @@ const ThemeToggle = () => {
   
   return (
     <motion.button
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.92 }}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="relative p-2 w-9 h-9 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50 hover:bg-muted transition-all duration-300 overflow-hidden"
+      className="relative p-2 w-9 h-9 rounded-full bg-muted/50 backdrop-blur-sm border border-border hover:bg-muted transition-all duration-200 overflow-hidden text-foreground"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
       <motion.div
         initial={false}
         animate={{
           rotate: isDark ? 180 : 0,
-          scale: isDark ? 0.8 : 1,
+          scale: isDark ? 0.85 : 1,
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="absolute inset-0 flex items-center justify-center"
       >
         {isDark ? (
-          <Sun size={16} className="text-yellow-500" />
+          <Sun size={15} className="text-foreground" />
         ) : (
-          <Moon size={16} className="text-blue-600" />
+          <Moon size={15} className="text-foreground" />
         )}
       </motion.div>
     </motion.button>

@@ -7,13 +7,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Now",
-  description: "A snapshot of what has my attention right now, including building Rhythme and learning latency compensation.",
+  description: "A snapshot of what has my attention right now, including building Amplecen around Rhythmé.",
   alternates: {
     canonical: "/now",
   },
   openGraph: {
     title: `Now | ${siteConfig.name}`,
-    description: "A snapshot of what has my attention right now, including building Rhythme and learning latency compensation.",
+    description: "A snapshot of what has my attention right now, including building Amplecen around Rhythmé.",
     url: "/now",
   },
 };
@@ -23,7 +23,7 @@ export default function NowPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": `Now | ${siteConfig.name}`,
-    "description": "A snapshot of what has my attention right now, including building Rhythme and learning latency compensation.",
+    "description": "A snapshot of what has my attention right now, including building Amplecen around Rhythmé.",
     "url": `${siteConfig.siteUrl}/now`,
     "breadcrumb": {
       "@type": "BreadcrumbList",
@@ -58,34 +58,45 @@ export default function NowPage() {
       <PageIntro
         eyebrow="Now"
         title="What I'm building and learning this week."
-        description="This page is current as of July 9, 2026 and reflects the work, learning, and priorities shaping my time at the moment."
+        description="This page is current as of August 24, 2026 and reflects what is currently getting the most attention in my daily work and thinking."
       />
 
       <section className="border-t border-border">
         <div className="page-shell section-shell">
-          <Reveal className="surface-muted max-w-3xl p-8 md:p-10">
-            <p className="eyebrow">Last updated</p>
-            <p className="mt-5 font-space-grotesk text-3xl font-bold">{siteConfig.nowUpdatedAt}</p>
-            <p className="mt-4 prose-copy">
+          <Reveal className="surface-muted max-w-3xl p-6 sm:p-8 md:p-10 transition-all hover:border-accent/40">
+            <div className="flex items-center gap-2.5">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              <p className="eyebrow">Last updated</p>
+            </div>
+            <p className="mt-3 sm:mt-4 font-newsreader text-2xl sm:text-3xl md:text-4xl font-semibold">{siteConfig.nowUpdatedAt}</p>
+            <p className="mt-3 sm:mt-4 prose-copy text-sm sm:text-base leading-relaxed">
               This page follows the{" "}
               <Link
                 href="https://nownownow.com/about"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-4"
+                className="text-accent underline underline-offset-4 hover:opacity-80"
               >
                 /now page movement
               </Link>
-              : a simple way to share what is currently getting the most attention.
+              : a simple way to share what is currently getting the most attention in my daily work and thinking.
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 sm:mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {nowSections.map((section, index) => (
               <Reveal key={section.title} delay={index * 0.06}>
-                <article className="surface p-7">
-                  <h3 className="eyebrow">{section.title}</h3>
-                  <p className="mt-5 text-sm leading-7 text-muted-foreground">{section.body}</p>
+                <article className="surface p-6 sm:p-8 h-full flex flex-col justify-between transition-all hover:border-accent/40">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="eyebrow">{section.title}</span>
+                      <span className="font-newsreader text-lg font-bold text-accent">0{index + 1}</span>
+                    </div>
+                    <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground">{section.body}</p>
+                  </div>
                 </article>
               </Reveal>
             ))}
@@ -95,14 +106,14 @@ export default function NowPage() {
 
       <section className="border-t border-border">
         <div className="page-shell section-shell">
-          <Reveal className="max-w-3xl">
-            <p className="eyebrow">Mindset</p>
-            <h2 className="section-title mt-5">Steady work over quick progress.</h2>
-            <p className="lede mt-5">
+          <Reveal className="surface-muted max-w-4xl p-7 sm:p-10 md:p-12">
+            <p className="eyebrow">Engineering Mindset</p>
+            <h2 className="section-title mt-3 sm:mt-4">Steady work over quick progress.</h2>
+            <p className="lede mt-4 max-w-2xl">
               I am focused on writing readable code and planning database changes on paper before writing code. Taking an extra hour to clarify a problem usually saves two days of rewriting code.
             </p>
-            <div className="mt-8">
-              <Link href="/connect" className="button-ghost">
+            <div className="mt-7 sm:mt-9">
+              <Link href="/connect" className="button-primary">
                 Want to connect?
                 <ArrowUpRight className="h-4 w-4" />
               </Link>

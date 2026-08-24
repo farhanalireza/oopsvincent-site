@@ -8,7 +8,8 @@ export type Project = {
   title: string;
   tagline: string;
   year: string;
-  status: "in-progress" | "shipped" | "archived";
+  status: "in-progress" | "shipped" | "archived" | "unavailable";
+  statusNotice?: string;
   summary: string;
   role: string;
   techStack: string[];
@@ -22,14 +23,25 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "rhythme",
-    title: "Rhythme",
-    tagline: "A daily planner built to combine tasks, habits, and reflection on a single quiet page.",
+    title: "Rhythmé",
+    tagline: "A Personal Alignment System unifying execution, emotional awareness, and behavioral intelligence in one calm workspace.",
     year: "2025-Present",
     status: "in-progress",
     summary:
-      "I got tired of productivity apps that treat planning like a game with streaks and badges. I wanted a quiet page to organize my day and write down what I got done.",
-    role: "Founder & Developer",
-    techStack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Framer Motion"],
+      "Built to bridge discipline and mindfulness. Rhythmé harmonizes execution tools (tasks, habits, deep work focus) with emotional awareness (zero-knowledge encrypted journaling, mood logging, weekly reflections) and explainable behavioral mathematics.",
+    role: "Founder & Full-Stack Architect",
+    techStack: [
+      "Next.js",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Supabase",
+      "PostgreSQL",
+      "Framer Motion",
+      "Zustand",
+      "TanStack Query",
+      "Web Crypto API",
+    ],
     links: [
       { label: "Live preview", href: "https://rhythme-gamma.vercel.app/" },
       {
@@ -39,26 +51,31 @@ export const projects: Project[] = [
     ],
     sections: [
       {
-        heading: "The Problem",
-        body: "Most productivity apps are designed to keep you inside the app. They use push notifications, streaks, and badges to capture attention. A good planner should do the opposite: it should help you get out of the app and back to your life.",
+        heading: "The Problem & Market Context",
+        body: "Modern knowledge workers operate across 4 to 6 disconnected tools: task managers with infinite anxiety-inducing backlogs, habit trackers with punitive streaks, and siloed journals. Most tools function as cold activity ledgers—recording what was done or missed without acknowledging how the user feels, why patterns break down, or what single action matters next.",
       },
       {
-        heading: "The Database",
-        body: "I chose PostgreSQL through Supabase. Instead of complex schema designs, I kept tables flat. A single log table links habit completions and tasks to a specific calendar date, which makes reading a user's day straightforward.",
+        heading: "System Architecture & Zero-Knowledge Privacy",
+        body: "Built with Next.js 16 (App Router), React 19, and Supabase PostgreSQL with strict Row-Level Security (RLS). Journal entries are protected by client-side AES-GCM-256 encryption with local PBKDF2 key derivation (100,000 iterations) via the Web Crypto API—ensuring sensitive reflections never touch servers or databases in cleartext.",
       },
       {
-        heading: "The Frontend",
-        body: "I built the frontend with Next.js. Habit tracking requires instant feedback. If checking a habit takes two seconds because of database latency, it feels broken. I update the checkbox immediately on the screen and sync the state to the database in the background.",
+        heading: "Unified Execution & Deep Work Engine",
+        body: "Features a Single Primary Goal Command Center that eliminates opening paralysis. Habits use a generalized frequency model with 90-day heatmaps and rule-based risk detection. Deep work focus sessions integrate ambient timers with contextual task associations and sub-50ms optimistic UI updates backed by TanStack Query and Zustand.",
       },
       {
-        heading: "What I Learned",
-        body: "Building alone forces you to prioritize. I realized that a database with perfect theoretical schema normalization is useless if it makes the frontend queries slow and hard to read. I learned to choose simplicity over perfect database theory.",
+        heading: "Explainable Behavioral Mathematics",
+        body: "Rather than pushing black-box LLM directives, Rhythmé employs deterministic statistical correlation engines (Pearson correlation for continuous variables and Point-Biserial correlation for dichotomous events) across 14-day rolling windows to surface explainable, actionable momentum patterns without privacy degradation.",
+      },
+      {
+        heading: "Engineering Challenges & Edge Performance",
+        body: "Overcame multi-timezone aggregation shifts with an isolated UTC-to-local normalization pipeline. Minimized dashboard TTFB to sub-350ms by moving strict route protection to Next.js Edge Middleware and implemented in-memory session key caching for 60 FPS streaming zero-knowledge decryption.",
       },
     ],
     takeaways: [
-      "A daily tracker is only useful if checking an item feels immediate.",
-      "Flat table structures are easier to query, debug, and change.",
-      "Deleting half-finished features is often better than trying to make them work.",
+      "Execution tools must harmonize with emotional awareness to sustain long-term consistency without burnout.",
+      "Client-side zero-knowledge encryption (AES-GCM-256) protects user vulnerability while maintaining instant UI performance.",
+      "Deterministic statistical correlation (Pearson & Point-Biserial) delivers explainable, trustworthy insights over opaque AI guesses.",
+      "A Single Primary Goal workspace eliminates decision fatigue and opening paralysis for ambitious builders.",
     ],
     logoImage: "/R.png",
     featured: true,
@@ -68,12 +85,13 @@ export const projects: Project[] = [
     title: "GrooveEstrella",
     tagline: "A music matching app built in a team of five using a deterministic scoring matrix.",
     year: "2024",
-    status: "shipped",
+    status: "unavailable",
+    statusNotice: "Spotify now requires a Spotify Premium account for third-party Web Playback & API access to function. You can still visit and test the live application.",
     summary:
       "Instead of plugging in Spotify or Last.fm recommendation APIs, we wanted to build a music recommendation engine ourselves. We designed our own matching logic using survey responses and weighted preferences.",
     role: "Technical Lead",
     techStack: ["React", "TypeScript", "Node.js", "Vite"],
-    links: [{ label: "Live project", href: "https://grooveestrella.vercel.app/" }],
+    links: [{ label: "Visit live application", href: "https://grooveestrella.vercel.app/" }],
     sections: [
       {
         heading: "Why we built it",

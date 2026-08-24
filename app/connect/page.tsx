@@ -68,22 +68,25 @@ export default function ConnectPage() {
         description="Whether you're looking to hire, collaborate, discuss an idea, or simply want to say hello, I'd be happy to hear from you. I enjoy conversations about software, startups, product design, and building things that solve real problems."
       />
 
+      {/* ================= WAYS TO CONNECT ================= */}
       <section className="border-t border-border">
         <div className="page-shell section-shell">
-          <Reveal className="max-w-3xl">
+          <Reveal className="max-w-2xl">
             <p className="eyebrow">Ways to connect</p>
-            <h2 className="section-title mt-5">Choose how you want to reach out.</h2>
+            <h2 className="section-title mt-3 sm:mt-4">Choose how you want to reach out.</h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 sm:mt-12 grid gap-6 md:grid-cols-3">
             {/* Card 1: Email */}
             <Reveal delay={0.05}>
-              <div className="surface flex h-full flex-col p-8">
-                <p className="eyebrow">Email</p>
-                <h3 className="mt-4 font-space-grotesk text-2xl font-bold">{siteConfig.email}</h3>
-                <p className="mt-4 text-sm leading-7 text-muted-foreground flex-grow">
-                  For project inquiries, freelance work, recruitment opportunities, or anything that doesn&apos;t fit into a calendar invite.
-                </p>
+              <div className="surface flex h-full flex-col justify-between p-6 sm:p-8 transition-all hover:border-accent/40">
+                <div>
+                  <p className="eyebrow">Email</p>
+                  <h3 className="mt-3 font-newsreader text-xl sm:text-2xl font-semibold break-all">{siteConfig.email}</h3>
+                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                    For project inquiries, freelance work, recruitment opportunities, or anything that doesn&apos;t fit into a calendar invite.
+                  </p>
+                </div>
                 <div className="mt-8">
                   <Link href={`mailto:${siteConfig.email}`} className="button-primary w-full justify-center">
                     <Mail className="h-4 w-4" />
@@ -95,22 +98,24 @@ export default function ConnectPage() {
 
             {/* Card 2: Call */}
             <Reveal delay={0.1}>
-              <div className="surface flex h-full flex-col p-8">
-                <p className="eyebrow">Schedule a call</p>
-                <h3 className="mt-4 font-space-grotesk text-2xl font-bold">Book a call</h3>
-                <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                  If you&apos;d rather talk face-to-face, you can book a time that works for both of us.
-                </p>
-                <div className="mt-6 flex-grow">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-foreground">Ideal for</p>
-                  <ul className="mt-3 space-y-2">
-                    {idealForItems.map((item) => (
-                      <li key={item} className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <div className="surface flex h-full flex-col justify-between p-6 sm:p-8 transition-all hover:border-accent/40">
+                <div>
+                  <p className="eyebrow">Schedule a call</p>
+                  <h3 className="mt-3 font-newsreader text-xl sm:text-2xl font-semibold">Book a 15-min call</h3>
+                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                    If you&apos;d rather talk face-to-face, you can book a time directly on my calendar.
+                  </p>
+                  <div className="mt-5 pt-4 border-t border-border/70">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-foreground">Ideal for</p>
+                    <ul className="mt-3 space-y-2">
+                      {idealForItems.map((item) => (
+                        <li key={item} className="flex items-center gap-2.5 text-xs sm:text-sm text-muted-foreground">
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
                 <div className="mt-8">
                   <Link 
@@ -119,7 +124,7 @@ export default function ConnectPage() {
                     rel="noopener noreferrer" 
                     className="button-secondary w-full justify-center"
                   >
-                    Book a call
+                    Open Calendar
                     <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -128,12 +133,14 @@ export default function ConnectPage() {
 
             {/* Card 3: X */}
             <Reveal delay={0.15}>
-              <div className="surface flex h-full flex-col p-8">
-                <p className="eyebrow">X (Twitter)</p>
-                <h3 className="mt-4 font-space-grotesk text-2xl font-bold">@oopsvincent</h3>
-                <p className="mt-4 text-sm leading-7 text-muted-foreground flex-grow">
-                  I occasionally share updates on what I&apos;m building, what I&apos;m learning, and the progress of Rhythme. If you have a quick question, feel free to reach out there as well.
-                </p>
+              <div className="surface flex h-full flex-col justify-between p-6 sm:p-8 transition-all hover:border-accent/40">
+                <div>
+                  <p className="eyebrow">Social</p>
+                  <h3 className="mt-3 font-newsreader text-xl sm:text-2xl font-semibold">@farhanalirezaa</h3>
+                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                    I occasionally share updates on what I&apos;m building, what I&apos;m learning, and the progress of Rhythmé. If you have a quick question, feel free to reach out there as well.
+                  </p>
+                </div>
                 <div className="mt-8">
                   <Link 
                     href={siteConfig.x} 
@@ -149,15 +156,15 @@ export default function ConnectPage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.2} className="mt-12 pt-12 border-t border-border/40">
-            <div className="flex flex-col gap-3">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Or find me on</p>
-              <div className="flex flex-wrap gap-6 mt-1">
+          <Reveal delay={0.2} className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-border">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Direct Social Links</p>
+              <div className="flex flex-wrap gap-4 sm:gap-6">
                 <Link 
                   href={siteConfig.github} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-medium text-sm"
+                  className="font-newsreader text-base text-foreground hover:text-accent transition-colors font-medium inline-flex items-center gap-1.5"
                 >
                   GitHub
                   <ArrowUpRight className="h-3.5 w-3.5" />
@@ -166,7 +173,7 @@ export default function ConnectPage() {
                   href={siteConfig.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-medium text-sm"
+                  className="font-newsreader text-base text-foreground hover:text-accent transition-colors font-medium inline-flex items-center gap-1.5"
                 >
                   LinkedIn
                   <ArrowUpRight className="h-3.5 w-3.5" />
@@ -175,7 +182,7 @@ export default function ConnectPage() {
                   href={siteConfig.x} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-medium text-sm"
+                  className="font-newsreader text-base text-foreground hover:text-accent transition-colors font-medium inline-flex items-center gap-1.5"
                 >
                   X (Twitter)
                   <ArrowUpRight className="h-3.5 w-3.5" />
@@ -186,59 +193,64 @@ export default function ConnectPage() {
         </div>
       </section>
 
+      {/* ================= GUIDELINES & AVAILABILITY ================= */}
       <section className="border-t border-border">
-        <div className="page-shell section-shell grid gap-12 lg:grid-cols-2">
+        <div className="page-shell section-shell grid gap-8 sm:gap-12 lg:grid-cols-2">
           {/* Before you reach out */}
           <Reveal>
-            <p className="eyebrow">Guidelines</p>
-            <h2 className="section-title mt-5 font-space-grotesk">Before you reach out</h2>
-            <div className="mt-6 prose-copy space-y-4">
-              <p>A short introduction always helps.</p>
-              <p>If you&apos;re getting in touch about a project, it helps to include:</p>
-              <ul className="space-y-2.5">
-                {[
-                  "who you are",
-                  "what you're building",
-                  "what kind of help you're looking for",
-                  "any relevant links or context",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="pt-4 font-medium text-foreground">
-                Clear messages usually lead to better conversations.
-              </p>
+            <div className="surface p-6 sm:p-8 h-full">
+              <p className="eyebrow">Guidelines</p>
+              <h2 className="section-title mt-3 sm:mt-4">Before you reach out</h2>
+              <div className="mt-4 sm:mt-6 prose-copy space-y-4 text-sm sm:text-base">
+                <p>A short introduction always helps. If you&apos;re getting in touch about a project, it helps to include:</p>
+                <ul className="space-y-2.5">
+                  {[
+                    "who you are",
+                    "what you're building",
+                    "what kind of help you're looking for",
+                    "any relevant links or context",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="pt-3 font-medium text-foreground">
+                  Clear messages usually lead to better conversations.
+                </p>
+              </div>
             </div>
           </Reveal>
 
           {/* Current availability */}
           <Reveal delay={0.08}>
-            <p className="eyebrow">Availability</p>
-            <h2 className="section-title mt-5 font-space-grotesk">Current availability</h2>
-            <div className="mt-6 prose-copy space-y-6">
-              <p>
-                I&apos;m currently focused on building Rhythme, so I only take on a limited number of client projects.
-              </p>
-              <p>
-                If I think I&apos;m a good fit for what you&apos;re building, I&apos;d be happy to talk.
-              </p>
+            <div className="surface p-6 sm:p-8 h-full">
+              <p className="eyebrow">Availability</p>
+              <h2 className="section-title mt-3 sm:mt-4">Current availability</h2>
+              <div className="mt-4 sm:mt-6 prose-copy space-y-4 text-sm sm:text-base">
+                <p>
+                  I&apos;m currently focused on building Rhythme, so I only take on a limited number of client projects and advisory discussions.
+                </p>
+                <p>
+                  If I think I&apos;m a good fit for what you&apos;re building, I&apos;d be happy to talk.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
+      {/* ================= DIRECT CONTACT BANNER ================= */}
       <section className="border-t border-border">
         <div className="page-shell section-shell">
-          <Reveal className="surface-muted max-w-4xl p-8 md:p-12">
+          <Reveal className="surface-muted max-w-4xl p-7 sm:p-10 md:p-12">
             <p className="eyebrow">Direct Contact</p>
-            <h2 className="section-title mt-5">Have an idea you&apos;d like to discuss?</h2>
-            <p className="lede mt-5 max-w-2xl">
+            <h2 className="section-title mt-3 sm:mt-4">Have an idea you&apos;d like to discuss?</h2>
+            <p className="lede mt-4 max-w-2xl">
               I&apos;d love to hear about it. Whether it&apos;s a startup, a product, a website, or simply a conversation about building software, my inbox is always open.
             </p>
-            <div className="mt-8">
+            <div className="mt-7 sm:mt-9">
               <Link href={`mailto:${siteConfig.email}`} className="button-primary">
                 Send an email
                 <Mail className="h-4 w-4" />

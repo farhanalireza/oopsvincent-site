@@ -65,25 +65,25 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border transition-all duration-300 backdrop-blur-md ${
+        className={`fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2rem)] max-w-5xl rounded-full border transition-all duration-300 backdrop-blur-md ${
           scrolled
-            ? "border-border bg-background/80 shadow-lg"
-            : "border-border/60 bg-background/60 shadow-md"
+            ? "border-border bg-background/85 shadow-lg shadow-black/5"
+            : "border-border/70 bg-background/70 shadow-sm"
         }`}
       >
-        <div className="flex justify-between items-center h-14 px-6">
+        <div className="flex justify-between items-center h-12 sm:h-14 px-4 sm:px-6">
             <Link
               href="/"
               onClick={closeMobileMenu}
               className="transition-opacity hover:opacity-80"
               aria-label={`${siteConfig.name} home`}
             >
-              <span className="font-space-grotesk text-lg font-bold">
+              <span className="font-newsreader text-xl sm:text-2xl font-bold tracking-tight">
                 {siteConfig.name}
               </span>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-2" aria-label="Primary navigation">
+            <nav className="hidden md:flex items-center gap-1.5 lg:gap-2" aria-label="Primary navigation">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -91,12 +91,12 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     aria-current={isActive ? "page" : undefined}
-                    className="relative rounded-full px-4 py-2"
+                    className="relative rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2"
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activeBubble"
-                        className="absolute inset-0 rounded-full border border-border bg-muted"
+                        className="absolute inset-0 rounded-full border border-border bg-muted/80"
                         transition={{
                           type: "spring",
                           stiffness: 380,
@@ -105,10 +105,10 @@ export default function Navbar() {
                       />
                     )}
                     <span
-                      className={`relative z-10 text-sm font-medium transition-colors ${
+                      className={`relative z-10 font-newsreader text-base sm:text-[1.0625rem] transition-colors ${
                         isActive
-                          ? "text-foreground"
-                          : "text-muted-foreground hover:text-foreground"
+                          ? "text-foreground font-semibold"
+                          : "text-muted-foreground font-normal hover:text-accent"
                       }`}
                     >
                       {link.name}
@@ -118,14 +118,14 @@ export default function Navbar() {
               })}
 
               {/* Theme Toggle */}
-              <div className="ml-4 pl-4 border-l border-border">
+              <div className="ml-3 pl-3 sm:ml-4 sm:pl-4 border-l border-border">
                 <ThemeToggle />
               </div>
             </nav>
 
             <button
               onClick={toggleMobileMenu}
-              className="rounded-lg p-2 transition-colors hover:bg-muted md:hidden"
+              className="rounded-full p-2 text-foreground transition-colors hover:bg-muted md:hidden"
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
@@ -139,7 +139,7 @@ export default function Navbar() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-5 h-5 sm:w-6 sm:h-6" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -149,7 +149,7 @@ export default function Navbar() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu className="w-6 h-6" />
+                    <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -176,23 +176,23 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm border-l border-border bg-background shadow-2xl md:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[85vw] max-w-xs sm:max-w-sm border-l border-border bg-background shadow-2xl md:hidden"
             >
               <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center p-6 border-b border-border">
+                <div className="flex justify-between items-center p-5 sm:p-6 border-b border-border">
                   <div>
-                    <p className="font-space-grotesk text-xl font-bold">Menu</p>
+                    <p className="font-newsreader text-2xl sm:text-3xl font-semibold">Menu</p>
                   </div>
                   <button
                     onClick={closeMobileMenu}
-                    className="p-2 rounded-lg hover:bg-muted transition-colors"
+                    className="p-2 rounded-full hover:bg-muted text-foreground transition-colors"
                     aria-label="Close menu"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-5 h-5" />
                   </button>
                 </div>
 
-                <nav className="flex-1 overflow-y-auto p-6" aria-label="Mobile navigation">
+                <nav className="flex-1 overflow-y-auto p-5 sm:p-6" aria-label="Mobile navigation">
                   <div className="space-y-2">
                     {navLinks.map((link, index) => {
                       const isActive = pathname === link.href;
@@ -207,15 +207,15 @@ export default function Navbar() {
                             href={link.href}
                             onClick={closeMobileMenu}
                             aria-current={isActive ? "page" : undefined}
-                            className={`flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                            className={`flex items-center justify-between px-4 py-3 rounded-xl font-newsreader text-xl sm:text-2xl transition-colors ${
                               isActive
-                                ? "bg-muted text-foreground"
-                                : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                ? "bg-muted text-foreground font-semibold"
+                                : "text-muted-foreground font-normal hover:text-foreground hover:bg-muted/50"
                             }`}
                           >
                             {link.name}
                             {isActive && (
-                              <div className="w-2 h-2 rounded-full bg-primary" />
+                              <div className="w-2 h-2 rounded-full bg-accent" />
                             )}
                           </Link>
                         </motion.div>
@@ -224,9 +224,9 @@ export default function Navbar() {
                   </div>
                 </nav>
 
-                <div className="p-6 border-t border-border">
+                <div className="p-5 sm:p-6 border-t border-border">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Theme</span>
+                    <span className="font-newsreader text-lg font-medium text-muted-foreground">Theme</span>
                     <ThemeToggle />
                   </div>
                 </div>
